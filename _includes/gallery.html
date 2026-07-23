@@ -2,6 +2,8 @@
 
 {% if include.id %}
   {% assign gallery = page.[include.id] %}
+{% elsif include.gallery %}
+  {% assign gallery = include.gallery %}
 {% else %}
   {% assign gallery = page.gallery %}
 {% endif %}
@@ -13,6 +15,7 @@
 {% else %}
   {% assign gallery_layout = '' %}
 {% endif %}
+
 
 <figure class="{{ gallery_layout }} {{ include.class }}">
   {% for img in gallery %}

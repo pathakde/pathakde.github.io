@@ -7,4 +7,5 @@ date: 2024-01-01
 venue: The Astrophysical Journal Letters, Volume 916, Issue 2, id.L23, 7 pp.
 coauthors: Sirio Belli and Rainer Weinberger
 paperurl: https://ui.adsabs.harvard.edu/link_gateway/2021ApJ...916L..23P/PUB_PDF
+bibcode: 2021ApJ...916L..23P
 ---

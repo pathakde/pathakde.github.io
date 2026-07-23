@@ -2,6 +2,11 @@
    SINGLE PAGE/POST
    ========================================================================== */
 
+html {
+  /* Match the exact height of your fixed header */
+  scroll-padding-top: 80px; 
+}
+
 #main {
   @include container;
   @include clearfix;

@@ -7,4 +7,5 @@ date: 2024-01-01
 venue: The Astronomical Journal, Volume 167, Issue 1, id.39, 31 pp.
 coauthors: Adam K. Leroy, Todd A. Thompson, Laura A. Lopez, et al.
 paperurl: https://ui.adsabs.harvard.edu/link_gateway/2024AJ....167...39P/PUB_PDF
+bibcode: 2024AJ....167...39P
 ---

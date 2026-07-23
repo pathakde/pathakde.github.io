@@ -6,4 +6,5 @@ link: https://ui.adsabs.harvard.edu/abs/2025ApJ...989..178P
 venue: The Astrophysical Journal, Volume 989, Issue 2, id.178, 18 pp.
 coauthors: Charlotte R. Christensen, Alyson M. Brooks, Ferah Munshi, et al.
 paperurl: https://ui.adsabs.harvard.edu/link_gateway/2025ApJ...989..178P/PUB_PDF
+bibcode: 2025ApJ...989..178P
 ---
