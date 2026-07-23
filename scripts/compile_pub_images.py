@@ -3,6 +3,7 @@ from dotenv import find_dotenv, load_dotenv
 
 from loguru import logger
 
+import frontmatter
 
 import os
 import requests
@@ -37,8 +38,17 @@ def get_graphics_links(bibcode: str, api_key: str) -> list[str]:
         return res.text
 
 
-def get_bibcodes() -> list[str]:
-    return ["2024AJ....167...39P"]
+def get_bibcodes(dir_path) -> list[str]:
+    # for every file in _publications,
+    # get bibcode from frontmatter
+    bibcodes = []
+    for file in dir_path.glob('*.md'):
+        metadata = frontmatter.load(file).metadata
+        bibcode = metadata.get("bibcode")
+        if bibcode:
+            bibcodes.append(bibcode)
+
+    return bibcodes
 
 
 def make_figures_dir(bibcode: str) -> str:
@@ -49,6 +59,14 @@ def make_figures_dir(bibcode: str) -> str:
     figures_dir_path.mkdir(parents=True, exist_ok=True)
 
     return figures_dir_path
+
+def get_publications_dir() -> str:
+    SCRIPT_DIR = Path(__file__).resolve().parent
+    publications_dir_path = (
+        SCRIPT_DIR / ".." / "_publications"
+    )
+
+    return publications_dir_path
 
 
 def download_graphic(link: str, dir_path):
@@ -116,10 +134,14 @@ def main():
         logger.error("ADS_API_KEY is not set :(")
         return
 
-    for bibcode in get_bibcodes():
+    publications_dir = get_publications_dir()
+    for bibcode in get_bibcodes(publications_dir):
+        logger.debug("========")
+        logger.debug(f"bibcode={bibcode}")
+
         graphics_links = get_graphics_links(bibcode, ADS_API_KEY)
 
-        # make dir
+        # Make dir
         figures_dir_path = make_figures_dir(bibcode)
 
         # Download figures
@@ -134,7 +156,7 @@ def main():
         # Write figures.json
         figures_json_file_path = figures_dir_path / "figures.json"
 
-        if graphics_links:
+        if graphics_links and not figures_json_file_path.is_file():
             logger.debug("writing figures.json metadata...")
 
             bad_links = write_figures_json(graphics_links, figures_json_file_path)
