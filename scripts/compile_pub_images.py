@@ -13,8 +13,15 @@ from natsort import natsorted
 
 import json
 
+from dataclasses import dataclass
 
-def get_graphics_links(bibcode: str, api_key: str) -> list[str]:
+@dataclass
+class Figure:
+    url: str
+    image_path: str
+
+
+def get_figures(bibcode: str, api_key: str) -> list[Figure]:
     res = requests.get(
         f"https://api.adsabs.harvard.edu/v1/graphics/{bibcode}",
         headers={"accept": "application/json", "authorization": f"Bearer {api_key}"},
@@ -23,13 +30,14 @@ def get_graphics_links(bibcode: str, api_key: str) -> list[str]:
     if res.ok:
         def get_highres_link(obj):
             figure = obj["images"][0]
+            
             thumbnail = figure["thumbnail"]
-            highres = figure["highres"]
+            highres = figure["highres"] # link to astroexplorer
 
             highres_file = highres.split("/")[-1] + "_hr.jpg"
             highres_link = "/".join(thumbnail.split("/")[:-1]) + "/" + highres_file
 
-            return highres_link
+            return Figure(url=highres, image_path=highres_link)
 
         figures = res.json()["figures"]
         return list(map(get_highres_link, figures))
@@ -90,13 +98,14 @@ def download_graphic(link: str, dir_path):
             file.write(response.content)
 
 
-def write_figures_json(links: list[str], save_path):
+def write_figures_json(figures: list[Figure], save_path):
     bad_links = []
-    for link in links:
+    for figure in figures:
+        link = figure.image_path
         response = requests.head(link, allow_redirects=True, timeout=5)
         if not response.ok:
             bad_links.append({
-                "link": link,
+                "url": link,
             })
     
     if bad_links:
@@ -105,11 +114,12 @@ def write_figures_json(links: list[str], save_path):
     data = {
         "figures": list(
             map(
-                lambda l: {
-                    "highres_link": l,
+                lambda f: {
+                    "url": f.url,
+                    "image_path": f.image_path,
                     "caption": "",
                 },
-                natsorted(links),
+                natsorted(figures, key=lambda f: f.url),
             )
         )
     }
@@ -149,15 +159,15 @@ def main():
         logger.debug("========")
         logger.debug(f"bibcode={bibcode}")
 
-        graphics_links = get_graphics_links(bibcode, ADS_API_KEY)
+        figures = get_figures(bibcode, ADS_API_KEY)
 
         # Download figures
         figures_dir_path = make_figures_dir(bibcode)
         if DOWNLOAD_FIGURES and has_no_images(figures_dir_path):
             logger.debug("downloading figures...")
 
-            for link in graphics_links:
-                download_graphic(link, figures_dir_path)
+            for figure in figures:
+                download_graphic(figure.image_path, figures_dir_path)
 
             logger.debug("downloading figures...done")
 
@@ -165,10 +175,10 @@ def main():
         publications_data_dir = make_publications_data_dir(bibcode)
         figures_json_file_path = publications_data_dir / "figures.json"
 
-        if graphics_links and not figures_json_file_path.is_file():
+        if figures and not figures_json_file_path.is_file():
             logger.debug("writing figures.json metadata...")
 
-            bad_links = write_figures_json(graphics_links, figures_json_file_path)
+            bad_links = write_figures_json(figures, figures_json_file_path)
             if bad_links:
                 logger.error("some links weren't retrievable: {bad_links}", bad_links=bad_links)
 

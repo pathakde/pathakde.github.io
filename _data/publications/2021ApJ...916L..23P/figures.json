@@ -1,23 +1,28 @@
 {
     "figures": [
         {
-            "highres_link": "https://s3.amazonaws.com/aasie/images/2041-8205/916/2/L23/apjlac13a7f1_hr.jpg",
+            "url": "http://www.astroexplorer.org/details/apjlac13a7f1",
+            "image_path": "https://s3.amazonaws.com/aasie/images/2041-8205/916/2/L23/apjlac13a7f1_hr.jpg",
             "caption": ""
         },
         {
-            "highres_link": "https://s3.amazonaws.com/aasie/images/2041-8205/916/2/L23/apjlac13a7f2_hr.jpg",
+            "url": "http://www.astroexplorer.org/details/apjlac13a7f2",
+            "image_path": "https://s3.amazonaws.com/aasie/images/2041-8205/916/2/L23/apjlac13a7f2_hr.jpg",
             "caption": ""
         },
         {
-            "highres_link": "https://s3.amazonaws.com/aasie/images/2041-8205/916/2/L23/apjlac13a7f3_hr.jpg",
+            "url": "http://www.astroexplorer.org/details/apjlac13a7f3",
+            "image_path": "https://s3.amazonaws.com/aasie/images/2041-8205/916/2/L23/apjlac13a7f3_hr.jpg",
             "caption": ""
         },
         {
-            "highres_link": "https://s3.amazonaws.com/aasie/images/2041-8205/916/2/L23/apjlac13a7f4_hr.jpg",
+            "url": "http://www.astroexplorer.org/details/apjlac13a7f4",
+            "image_path": "https://s3.amazonaws.com/aasie/images/2041-8205/916/2/L23/apjlac13a7f4_hr.jpg",
             "caption": ""
         },
         {
-            "highres_link": "https://s3.amazonaws.com/aasie/images/2041-8205/916/2/L23/apjlac13a7f5_hr.jpg",
+            "url": "http://www.astroexplorer.org/details/apjlac13a7f5",
+            "image_path": "https://s3.amazonaws.com/aasie/images/2041-8205/916/2/L23/apjlac13a7f5_hr.jpg",
             "caption": ""
         }
     ]
