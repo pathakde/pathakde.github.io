@@ -15,6 +15,7 @@ import json
 
 from dataclasses import dataclass
 
+
 @dataclass
 class Figure:
     url: str
@@ -28,11 +29,12 @@ def get_figures(bibcode: str, api_key: str) -> list[Figure]:
     )
 
     if res.ok:
+
         def get_highres_link(obj):
             figure = obj["images"][0]
-            
+
             thumbnail = figure["thumbnail"]
-            highres = figure["highres"] # link to astroexplorer
+            highres = figure["highres"]  # link to astroexplorer
 
             highres_file = highres.split("/")[-1] + "_hr.jpg"
             highres_link = "/".join(thumbnail.split("/")[:-1]) + "/" + highres_file
@@ -49,7 +51,7 @@ def get_bibcodes(dir_path) -> list[str]:
     # for every file in _publications,
     # get bibcode from frontmatter
     bibcodes = []
-    for file in dir_path.glob('*.md'):
+    for file in dir_path.glob("*.md"):
         metadata = frontmatter.load(file).metadata
         bibcode = metadata.get("bibcode")
         if bibcode:
@@ -68,12 +70,9 @@ def make_figures_dir(bibcode: str) -> str:
     return figures_dir_path
 
 
-
 def make_publications_data_dir(bibcode: str) -> str:
     SCRIPT_DIR = Path(__file__).resolve().parent
-    dir_path = (
-        SCRIPT_DIR / ".." / "_data" / "publications" / bibcode
-    )
+    dir_path = SCRIPT_DIR / ".." / "_data" / "publications" / bibcode
     dir_path.mkdir(parents=True, exist_ok=True)
 
     return dir_path
@@ -81,9 +80,7 @@ def make_publications_data_dir(bibcode: str) -> str:
 
 def get_publications_dir() -> str:
     SCRIPT_DIR = Path(__file__).resolve().parent
-    publications_dir_path = (
-        SCRIPT_DIR / ".." / "_publications"
-    )
+    publications_dir_path = SCRIPT_DIR / ".." / "_publications"
 
     return publications_dir_path
 
@@ -104,10 +101,12 @@ def write_figures_json(figures: list[Figure], save_path):
         link = figure.image_path
         response = requests.head(link, allow_redirects=True, timeout=5)
         if not response.ok:
-            bad_links.append({
-                "url": link,
-            })
-    
+            bad_links.append(
+                {
+                    "url": link,
+                }
+            )
+
     if bad_links:
         return bad_links
 
@@ -130,15 +129,15 @@ def write_figures_json(figures: list[Figure], save_path):
 
 def has_no_images(directory_path):
     # Define common image extensions (lowercase for normalization)
-    image_extensions = {'.jpg', '.jpeg', '.png', '.gif', '.bmp', '.webp', '.tiff'}
-    
+    image_extensions = {".jpg", ".jpeg", ".png", ".gif", ".bmp", ".webp", ".tiff"}
+
     dir_path = Path(directory_path)
-    
+
     # Iterate through all files in the directory
     for file_path in dir_path.iterdir():
         if file_path.is_file() and file_path.suffix.lower() in image_extensions:
             return False  # Found an image, so it *does* have image files
-            
+
     return True  # Iterated through all files and found no images
 
 
@@ -180,9 +179,12 @@ def main():
 
             bad_links = write_figures_json(figures, figures_json_file_path)
             if bad_links:
-                logger.error("some links weren't retrievable: {bad_links}", bad_links=bad_links)
+                logger.error(
+                    "some links weren't retrievable: {bad_links}", bad_links=bad_links
+                )
 
             logger.debug("writing figures.json metadata...done")
+
 
 if __name__ == "__main__":
     main()
