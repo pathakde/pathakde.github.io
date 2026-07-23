@@ -19,5 +19,12 @@ pip install [package]
 make freeze
 ```
 
+# Format
+```bash
+source .venv/bin/activate
+
+black {}
+isort --profile black {}
+```
 TODO: learn to use uv
 TODO: move python dependency management to root
