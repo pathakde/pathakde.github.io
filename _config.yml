@@ -38,7 +38,7 @@ author:
   # Academic websites
   academia         : # URL
   ads              : "https://ui.adsabs.harvard.edu/public-libraries/eR5L3bWgT0CwFG3SLRwiBQ"
-  arxiv            : # URL - Update with the correct link to your profile
+  arxiv            :  "https://arxiv.org/a/pathak_d_3"
   googlescholar    : "https://scholar.google.com/citations?user=YsuBGusAAAAJ"
   inspire-hep      : # URL
   impactstory      : # URL
@@ -90,8 +90,10 @@ author:
 publication_category:
   books:
     title: 'Books'
+  first_author_publications:
+    title: 'Publications as first author'
   manuscripts:
-    title: 'Journal Articles'    
+    title: 'Journal Articles'
   conferences:
     title: 'Conference Papers'
 
