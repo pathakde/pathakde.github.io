@@ -20,3 +20,4 @@ make freeze
 ```
 
 TODO: learn to use uv
+TODO: move python dependency management to root

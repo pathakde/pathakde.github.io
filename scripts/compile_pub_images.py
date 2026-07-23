@@ -21,7 +21,6 @@ def get_graphics_links(bibcode: str, api_key: str) -> list[str]:
     )
 
     if res.ok:
-
         def get_highres_link(obj):
             figure = obj["images"][0]
             thumbnail = figure["thumbnail"]
@@ -59,6 +58,18 @@ def make_figures_dir(bibcode: str) -> str:
     figures_dir_path.mkdir(parents=True, exist_ok=True)
 
     return figures_dir_path
+
+
+
+def make_publications_data_dir(bibcode: str) -> str:
+    SCRIPT_DIR = Path(__file__).resolve().parent
+    dir_path = (
+        SCRIPT_DIR / ".." / "_data" / "publications" / bibcode
+    )
+    dir_path.mkdir(parents=True, exist_ok=True)
+
+    return dir_path
+
 
 def get_publications_dir() -> str:
     SCRIPT_DIR = Path(__file__).resolve().parent
@@ -125,7 +136,6 @@ def main():
     if not find_dotenv():
         logger.error(".env file is missing :(")
         return
-
     load_dotenv()
 
     ADS_API_KEY = os.environ.get("ADS_API_KEY")
@@ -141,10 +151,8 @@ def main():
 
         graphics_links = get_graphics_links(bibcode, ADS_API_KEY)
 
-        # Make dir
-        figures_dir_path = make_figures_dir(bibcode)
-
         # Download figures
+        figures_dir_path = make_figures_dir(bibcode)
         if DOWNLOAD_FIGURES and has_no_images(figures_dir_path):
             logger.debug("downloading figures...")
 
@@ -154,7 +162,8 @@ def main():
             logger.debug("downloading figures...done")
 
         # Write figures.json
-        figures_json_file_path = figures_dir_path / "figures.json"
+        publications_data_dir = make_publications_data_dir(bibcode)
+        figures_json_file_path = publications_data_dir / "figures.json"
 
         if graphics_links and not figures_json_file_path.is_file():
             logger.debug("writing figures.json metadata...")
