@@ -3,3 +3,7 @@ env:
 
 export:
 	conda env export --from-history --no-builds | grep -v "^prefix: " > environment.yml
+
+format:
+	black .
+	isort --profile black .

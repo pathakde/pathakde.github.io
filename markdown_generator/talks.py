@@ -15,11 +15,8 @@ import csv
 import os
 import sys
 
-html_escape_table = {
-    "&": "&amp;",
-    '"': "&quot;",
-    "'": "&apos;"
-}
+html_escape_table = {"&": "&amp;", '"': "&quot;", "'": "&apos;"}
+
 
 def html_escape(text):
     if isinstance(text, str):
@@ -51,14 +48,17 @@ def main(input_file, output_dir=None):
             description = row.get("description", "").strip()
 
             if not title or not url_slug or not date:
-                print("Skipping row: missing required field (title, url_slug, or date)", file=sys.stderr)
+                print(
+                    "Skipping row: missing required field (title, url_slug, or date)",
+                    file=sys.stderr,
+                )
                 continue
 
             md_filename = date + "-" + url_slug + ".md"
             md_path = os.path.join(output_dir, md_filename)
 
             md = "---\n"
-            md += "title: \"" + title + "\"\n"
+            md += 'title: "' + title + '"\n'
             md += "collection: talks\n"
             if len(talk_type) > 3:
                 md += 'type: "' + talk_type + '"\n'

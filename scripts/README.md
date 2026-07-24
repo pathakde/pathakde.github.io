@@ -23,6 +23,5 @@ make export
 ```bash
 conda activate dpsite
 
-black {}
-isort --profile black {}
+make format
 ```
