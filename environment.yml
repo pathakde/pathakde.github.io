@@ -32,3 +32,4 @@ dependencies:
   - bzip2=1.0.8=h80987f9_6
   - readline=8.3=h0b18652_0
   - python=3.14.6=h80e0c04_101_cp314
+  - requests
