@@ -279,6 +279,7 @@ defaults:
       author_profile: true
       share: true
       comments: true
+      disable_footer: true
   # _portfolio
   - scope:
       path: ""
