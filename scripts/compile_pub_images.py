@@ -1,10 +1,13 @@
 import json
 import os
+import re
 from dataclasses import dataclass
 from pathlib import Path
 
 import frontmatter
+import nh3
 import requests
+from bs4 import BeautifulSoup
 from dotenv import find_dotenv, load_dotenv
 from loguru import logger
 from natsort import natsorted
@@ -12,8 +15,15 @@ from natsort import natsorted
 
 @dataclass
 class Figure:
+    id: str
     url: str
     image_path: str
+
+
+@dataclass
+class FigureWithCaption:
+    figure: Figure
+    caption: str
 
 
 def get_figures(bibcode: str, api_key: str) -> list[Figure]:
@@ -30,10 +40,11 @@ def get_figures(bibcode: str, api_key: str) -> list[Figure]:
             thumbnail = figure["thumbnail"]
             highres = figure["highres"]  # link to astroexplorer
 
-            highres_file = highres.split("/")[-1] + "_hr.jpg"
+            file_id = highres.split("/")[-1]
+            highres_file = file_id + "_hr.jpg"
             highres_link = "/".join(thumbnail.split("/")[:-1]) + "/" + highres_file
 
-            return Figure(url=highres, image_path=highres_link)
+            return Figure(url=highres, image_path=highres_link, id=file_id)
 
         figures = res.json()["figures"]
         return list(map(get_highres_link, figures))
@@ -89,9 +100,10 @@ def download_graphic(link: str, dir_path):
             file.write(response.content)
 
 
-def write_figures_json(figures: list[Figure], save_path):
+def write_figures_json(figuresWithCaption: list[FigureWithCaption], save_path):
     bad_links = []
-    for figure in figures:
+    for f in figuresWithCaption:
+        figure = f.figure
         link = figure.image_path
         response = requests.head(link, allow_redirects=True, timeout=5)
         if not response.ok:
@@ -108,11 +120,12 @@ def write_figures_json(figures: list[Figure], save_path):
         "figures": list(
             map(
                 lambda f: {
-                    "url": f.url,
-                    "image_path": f.image_path,
-                    "caption": "",
+                    "id": f.figure.id,
+                    "url": f.figure.url,
+                    "image_path": f.figure.image_path,
+                    "caption": f.caption,
                 },
-                natsorted(figures, key=lambda f: f.url),
+                natsorted(figuresWithCaption, key=lambda f: f.figure.url),
             )
         )
     }
@@ -133,6 +146,80 @@ def has_no_images(directory_path):
             return False  # Found an image, so it *does* have image files
 
     return True  # Iterated through all files and found no images
+
+
+@dataclass
+class FigureCaption:
+    figure_number: str
+    content: str
+
+
+def get_caption(url) -> str:
+    def get_html(url: str) -> str:
+        response = requests.get(url)
+
+        if response.status_code == 200:
+            return response.text
+        else:
+            logger.error(
+                "Failed to fetch page. status={status} | text={text}",
+                status=response.status_code,
+                text=response.text,
+            )
+
+    def strip_outer_div_or_p(html_string: str):
+        # Matches a starting <div or <p tag, capturing the tag name,
+        # allows attributes inside the tag, and ensures it ends with the matching closure.
+        pattern = r"^<(div|p)(?:\s+[^>]*)?>(.*)</\1>$"
+
+        cleaned_string = html_string.strip()
+        while True:
+            cleaned_string = cleaned_string.strip()
+            match = re.match(pattern, cleaned_string, re.DOTALL)
+
+            if match:
+                cleaned_string = match.group(2)
+            else:
+                return cleaned_string
+
+    def parse_caption(html_string):
+        soup = BeautifulSoup(html_string, "html.parser")
+        image_figures = soup.find_all(id="image-figure")
+        image_captions = soup.find_all(id="image-caption")
+
+        # TODO: if more than one of either log error do nothing
+
+        # parse figure number
+        match = (
+            re.search(r"Figure \d+\.?", image_figures[0].get_text())
+            if image_figures
+            else ""
+        )
+        figure_number = match.group() if match else ""
+
+        # parse caption content
+        cleaned_caption_content = (
+            nh3.clean(
+                str(image_captions[0]),
+                url_relative=("rewrite_with_base", "http://www.astroexplorer.org"),
+            )
+            if image_captions
+            else ""
+        )
+        cleaned_caption_content = strip_outer_div_or_p(cleaned_caption_content)
+        if figure_number:
+            return f"<strong>{figure_number}</strong> {cleaned_caption_content}"
+        return cleaned_caption_content
+
+    return parse_caption(get_html(url))
+
+
+def caption_figures(figures: list[Figure]) -> list[FigureWithCaption]:
+    figures_with_caption = []
+    for f in figures:
+        caption = get_caption(f.url)
+        figures_with_caption.append(FigureWithCaption(figure=f, caption=caption))
+    return figures_with_caption
 
 
 def main():
@@ -171,7 +258,9 @@ def main():
         if figures and not figures_json_file_path.is_file():
             logger.debug("writing figures.json metadata...")
 
-            bad_links = write_figures_json(figures, figures_json_file_path)
+            figures_with_caption = caption_figures(figures)
+
+            bad_links = write_figures_json(figures_with_caption, figures_json_file_path)
             if bad_links:
                 logger.error(
                     "some links weren't retrievable: {bad_links}", bad_links=bad_links

@@ -1,109 +1,130 @@
 {
     "figures": [
         {
+            "id": "ajad110df1",
             "url": "http://www.astroexplorer.org/details/ajad110df1",
             "image_path": "https://s3.amazonaws.com/aasie/images/0004-6256/167/1/null/ajad110df1_hr.jpg",
-            "caption": ""
+            "caption": "<strong>Figure 1.</strong> Images and PDFs of emission at 7.7, 10, 11.3, and 21  <em>\u03bc</em>m for NGC 4321 at 0.\u203385 (60 pc) resolution. Top: JWST images for NGC 4321 in each MIRI filter, restricted to the footprint of JWST-MUSE coverage (\u223c10 kpc; dashed blue). Middle: PDFs of inclination-corrected intensity from each image. The colors in the PDF map to the color bar in intensity used to display each image. Vertical dashed lines indicate the rms noise level in each filter at 0.\u203385. Bottom: the same PDF as in the middle row, but now with the <em>y</em>-axis on a logarithmic stretch to highlight features at the high-intensity end."
         },
         {
+            "id": "ajad110df2",
             "url": "http://www.astroexplorer.org/details/ajad110df2",
             "image_path": "https://s3.amazonaws.com/aasie/images/0004-6256/167/1/null/ajad110df2_hr.jpg",
-            "caption": ""
+            "caption": "<strong>Figure 2.</strong> Images and PDFs of emission from the central 1 kpc at 7.7, 10, 11.3, and 21  <em>\u03bc</em>m for NGC 4321. Top: images of the central 1 kpc in NGC 4321 in each MIRI filter. Middle: pdf\u2019s of inclination-corrected intensity from each image. The colors reflect the common color bar in intensity used to display each image. Bottom: the same PDFs as in the middle row, but now with the <em>y</em>-axis on a logarithmic stretch to highlight features at the high-intensity end."
         },
         {
+            "id": "ajad110df3",
             "url": "http://www.astroexplorer.org/details/ajad110df3",
             "image_path": "https://s3.amazonaws.com/aasie/images/0004-6256/167/1/null/ajad110df3_hr.jpg",
-            "caption": ""
+            "caption": "<strong>Figure 3.</strong> The PDFs of emission of the galactic disk (<em>r</em> \u2265 1 kpc) after masking the center, at 7.7, 10, 11.3, and 21  <em>\u03bc</em>m for NGC 4321. Top: images of the galactic disk of NGC 4321 in each MIRI filter, with the masked central region shaded. Middle: PDFs of inclination-corrected intensity from each image excluding the masked central region. The colors in the PDF reflect the color bar in intensity used to display each image. Vertical dashed lines indicate rms noise levels in each filter. Bottom: the same disk-only PDFs shown in the middle row, but now with the <em>y</em>-axis in log-stretch to highlight features at the high-intensity end. The PDFs of the disk show a consistent lognormal component that peaks at lower intensities, as well as a high-intensity tail that can be roughly approximated to a power law."
         },
         {
+            "id": "ajad110df4",
             "url": "http://www.astroexplorer.org/details/ajad110df4",
             "image_path": "https://s3.amazonaws.com/aasie/images/0004-6256/167/1/null/ajad110df4_hr.jpg",
-            "caption": ""
+            "caption": "<strong>Figure 4.</strong> The PDFs of the galactic disk (in black) for our full sample at 21  <em>\u03bc</em>m. Vertical dashed lines show the rms noise levels for 21 <em>\u03bc</em>m at 0.\u203385. The PDFs at each filter show an overall distribution well fit by a lognormal (red) at lower intensity (residuals in gray), with high-intensity residuals (dashed gray) that are well fit by a power law (blue)."
         },
         {
+            "id": "ajad110df5",
             "url": "http://www.astroexplorer.org/details/ajad110df5",
             "image_path": "https://s3.amazonaws.com/aasie/images/0004-6256/167/1/null/ajad110df5_hr.jpg",
-            "caption": ""
+            "caption": "<strong>Figure 5.</strong> The PDFs of emission of the galactic disk (<em>r</em> \u2265 1 kpc) after masking the center, at 7.7, 10, 11.3, and 21  <em>\u03bc</em>m for NGC 4303, tagged by emission from within and outside of H <small>II</small> regions. Top: images of the galactic disk of NGC 4303 in each MIRI filter, with the masked central region shaded. H<em>\u03b1</em>-identified H <small>II</small> regions are overlaid in blue contours. Middle: PDFs of inclination-corrected intensity from the disk (excluding the masked central region), colored by the intensity color bar used to display each image. The PDFs of emission from within H <small>II</small> regions and outside of H <small>II</small> region masks are included in hatched blue and orange, respectively. Bottom: the same disk-only PDFs shown in the middle row, but now with the <em>y</em>-axis in log-stretch to highlight the power-law tail. It is evident that the emission from H <small>II</small> regions builds up the power-law component, and the diffuse ISM outside of H <small>II</small> regions shows a lognormal PDF."
         },
         {
+            "id": "ajad110df6",
             "url": "http://www.astroexplorer.org/details/ajad110df6",
             "image_path": "https://s3.amazonaws.com/aasie/images/0004-6256/167/1/null/ajad110df6_hr.jpg",
-            "caption": ""
+            "caption": "<strong>Figure 6.</strong> The galactic disk PDFs (in black) of our full sample of 19 galaxies at 7.7, 10, 11.3, and 21 <em>\u03bc</em>m show an overall lognormal distribution with a power-law tail at higher intensities. The power law component can be primarily attributed to emission from individual H <small>II</small> regions (blue), and the lognormal component comes from emission from outside H <small>II</small> regions (red). Vertical dashed lines indicate the rms noise level in each filter for reference. The best-fit lognormal mean <em>\u03bc</em> and dispersion <em>\u03c3</em> are included for each PDF."
         },
         {
+            "id": "ajad110df7",
             "url": "http://www.astroexplorer.org/details/ajad110df7",
             "image_path": "https://s3.amazonaws.com/aasie/images/0004-6256/167/1/null/ajad110df7_hr.jpg",
-            "caption": ""
+            "caption": "<strong>Figure 7.</strong> The disk PDFs (in black) of our sample of 19 galaxies at 7.7, 10, 11.3, and 21 <em>\u03bc</em>m decomposed by contributions from H <small>II</small> regions (blue) and outside (red). These are the same PDFs as in Figure <a href=\"http://www.astroexplorer.org/details/ajad110df6\" rel=\"noopener noreferrer\">6</a>, but in log-stretch to highlight the power-law component. The best-fit power law is shown in dark blue. The corresponding best-fit H <small>II</small> region power-law index <em>m</em> and log\u2013log intercept <em>c</em> for each PDF are included for each panel."
         },
         {
+            "id": "ajad110df8",
             "url": "http://www.astroexplorer.org/details/ajad110df8",
             "image_path": "https://s3.amazonaws.com/aasie/images/0004-6256/167/1/null/ajad110df8_hr.jpg",
-            "caption": ""
+            "caption": "<strong>Figure 8.</strong> Summary of the galactic disk PDF parameters at each wavelength, including the H <small>II</small> region power-law index (<em>m</em>) in the left panel and the diffuse component lognormal mean (<em>\u03bc</em>) and variance (<em>\u03c3</em>) in the middle and right panels, respectively, as included in Table 2. The PDFs at 21 <em>\u03bc</em>m show significantly more pronounced power law components, while the mean intensity of the diffuse lognormal component is systematically higher in PAH-tracing 7.7 and 11.3 <em>\u03bc</em>m. The lognormal PDF widths remain generally consistent across the four filters."
         },
         {
+            "id": "ajad110df9",
             "url": "http://www.astroexplorer.org/details/ajad110df9",
             "image_path": "https://s3.amazonaws.com/aasie/images/0004-6256/167/1/null/ajad110df9_hr.jpg",
-            "caption": ""
+            "caption": "<strong>Figure 9.</strong> Median and 16th\u201384th range of mid-IR intensities in the diffuse ISM (red), H <small>II</small> region (blue), and central components (yellow) at 7.7, 10, 11.3, and 21 <em>\u03bc</em>m. AGN-classified galaxies (see Table 1 for AGN classification) are represented with diamonds. Targets are arranged in decreasing order of SFR from top to bottom. The overall brightness of both the disk and centers generally increases with SFR. The H <small>II</small> regions and centers (\u201cbright\u201d regions) show a significantly larger dynamical range of intensities at 21 <em>\u03bc</em>m."
         },
         {
+            "id": "ajad110df10",
             "url": "http://www.astroexplorer.org/details/ajad110df10",
             "image_path": "https://s3.amazonaws.com/aasie/images/0004-6256/167/1/null/ajad110df10_hr.jpg",
-            "caption": ""
+            "caption": "<strong>Figure 10.</strong> The fraction of total flux coming from the diffuse ISM (red), H <small>II</small> regions (blue), and central regions (yellow) at 7.7, 10, 11.3, and 21 <em>\u03bc</em>m. Targets are arranged in decreasing order of SFR from top to bottom. While the contribution from the centers varies, a significant fraction of the flux in the disk comes from diffuse emission."
         },
         {
+            "id": "ajad110df11",
             "url": "http://www.astroexplorer.org/details/ajad110df11",
             "image_path": "https://s3.amazonaws.com/aasie/images/0004-6256/167/1/null/ajad110df11_hr.jpg",
-            "caption": ""
+            "caption": "<strong>Figure 11.</strong> 7.7 <em>\u03bc</em>m images and PDFs of the galactic disk of NGC 0628 convolved to progressively lower resolutions\u20140.\u2033269 (the native resolution of the F770W filter), 0.\u2033674 (the native resolution of the F2100W filter), 0.\u203385 (our working resolution), 4.\u20330, 7.\u20335, and 15.\u20330. This corresponds to physical resolutions of 12, 32, 40, 190, 356, and 712 pc, respectively, in NGC 0628. The two-component PDF only emerges at high angular resolution when individual star-forming regions can be resolved from the surrounding diffuse emission."
         },
         {
+            "id": "ajad110df12",
             "url": "http://www.astroexplorer.org/details/ajad110df12",
             "image_path": "https://s3.amazonaws.com/aasie/images/0004-6256/167/1/null/ajad110df12_hr.jpg",
-            "caption": ""
+            "caption": "<strong>Figure 12.</strong> 21 <em>\u03bc</em>m images and PDFs of the galactic disk of NGC 0628 convolved to progressively lower resolutions, similar to Figure <a href=\"http://www.astroexplorer.org/details/ajad110df11\" rel=\"noopener noreferrer\">11</a>\u20140.\u2033674 (the native resolution of the F2100W filter), 0.\u203385 (our working resolution), 4.\u20330, 7.\u20335, and 15.\u20330. This corresponds to physical resolutions of 32, 40, 190, 356, and 712 pc, respectively, in NGC 0628. While the power law is very prominent at high resolution, the power-law component is rapidly diluted at lower resolutions that do not resolve individual star-forming regions in the disk."
         },
         {
+            "id": "ajad110df13",
             "url": "http://www.astroexplorer.org/details/ajad110df13",
             "image_path": "https://s3.amazonaws.com/aasie/images/0004-6256/167/1/null/ajad110df13_hr.jpg",
-            "caption": ""
+            "caption": "<strong>Figure 13.</strong> Spearman\u2019s rank correlation coefficients between the parameters of mid-IR PDFs of intensity at 21 <em>\u03bc</em>m and global galaxy properties. Stronger positive (negative) correlations are indicated in green (pink). We present rank correlations among the most important observation-specific parameters (galaxy inclination <em>i</em>, distance <em>d</em>), intrinsic properties (SFR surface density \u03a3<sub>SFR</sub>, stellar mass surface density \ufe69{{\\rm{\\Sigma }}}_{{M}_{* }}\ufe69, H <small>I</small> mass surface density \ufe69{{\\rm{\\Sigma }}}_{{M}_{\\mathrm{HI}}}\ufe69, and <small>CO</small> luminosity surface density \ufe69{{\\rm{\\Sigma }}}_{{L}_{\\mathrm{CO}}}\ufe69), and extrinsic properties (average SFR, total stellar mass <em>M</em> <sub>*</sub>, H <small>I</small> mass <em>M</em> <sub>HI</sub>, <small>CO</small> luminosity <em>L</em> <sub>CO</sub>, average <small>[O/H]</small>, and effective radius <em>R</em> <sub> <em>e</em> </sub>), as well as the H <small>II</small> region luminosity function slopes <em>\u03b1</em> from Santoro et al. (2022), with PDF parameters (H <small>II</small> region power-law index <em>m</em>, diffuse lognormal mean <em>\u03bc</em> and dispersion <em>\u03c3</em>) and region-wise flux contributions (median intensity <em>I</em> <sub>50</sub> and percent of total flux in field of view for centers, H <small>II</small> regions, and the diffuse ISM)."
         },
         {
+            "id": "ajad110df14",
             "url": "http://www.astroexplorer.org/details/ajad110df14",
             "image_path": "https://s3.amazonaws.com/aasie/images/0004-6256/167/1/null/ajad110df14_hr.jpg",
-            "caption": ""
+            "caption": "<strong>Figure 14.</strong> NGC 1566 at 21 <em>\u03bc</em>m with all VLT/MUSE-identified H <small>II</small> regions outlined in blue (top), with the corresponding PDF (middle) and log-PDF in intensity (bottom). A few of the largest H <small>II</small> regions in NGC 1566 are highlighted in green. The overall pdf and log-PDF of intensities at 21 <em>\u03bc</em>m (black), from all H <small>II</small> regions (blue), and each of the highlighted individual H <small>II</small> regions (green) are shown for comparison."
         },
         {
+            "id": "ajad110df15",
             "url": "http://www.astroexplorer.org/details/ajad110df15",
             "image_path": "https://s3.amazonaws.com/aasie/images/0004-6256/167/1/null/ajad110df15_hr.jpg",
-            "caption": ""
+            "caption": "<strong>Figure 15.</strong> Histograms of pixel-wise bolometric luminosity surface density \ufe69{{\\rm{\\Sigma }}}_{{L}_{\\mathrm{bol}}}\ufe69 from the center (yellow), diffuse component (red), and H <small>II</small> regions (blue) for each of our targets. The median \ufe69{{\\rm{\\Sigma }}}_{{L}_{\\mathrm{bol}}}\ufe69 for H <small>II</small> regions (vertical blue line) remains roughly consistent between targets. The vertical dashed line shows the estimated Eddington luminosity surface density in star-forming regions, scaled from \ufe69{{ \\mathcal F }}_{{L}_{\\mathrm{bol}}}\ufe69 to \ufe69{{\\rm{\\Sigma }}}_{{L}_{\\mathrm{bol}}}\ufe69 units for direct comparison."
         },
         {
+            "id": "ajad110df16",
             "url": "http://www.astroexplorer.org/details/ajad110df16",
             "image_path": "https://s3.amazonaws.com/aasie/images/0004-6256/167/1/null/ajad110df16_hr.jpg",
-            "caption": ""
+            "caption": "<strong>Figure 16.</strong> Stacked PDFs of emission from \u201cdiffuse\u201d regions normalized by mean intensity and amplitude at 7.7 and 21 <em>\u03bc</em>m. The widths of the PDFs remain consistent across targets, with the exception of NGC 1300 with a broad PDF."
         },
         {
+            "id": "ajad110df17",
             "url": "http://www.astroexplorer.org/details/ajad110df17",
             "image_path": "https://s3.amazonaws.com/aasie/images/0004-6256/167/1/null/ajad110df17_hr.jpg",
-            "caption": ""
+            "caption": "<strong>Figure 17.</strong> The PDFs of gas column density <em>N</em>(H) in diffuse regions (hatched red) derived from 7.7 <em>\u03bc</em>m intensities (Equations (13) and (14)) for each galaxy. Lognormal fits to each of the PDFs with the fit means are overlaid in black for comparison. The best-fit lognormal mean <em>N</em>(H) (<em>\u03bc</em> <sub> <em>N</em> </sub>) and dispersion (<em>\u03c3</em> <sub> <em>N</em> </sub>) are included, as in Table 2."
         },
         {
+            "id": "ajad110df18",
             "url": "http://www.astroexplorer.org/details/ajad110df18",
             "image_path": "https://s3.amazonaws.com/aasie/images/0004-6256/167/1/null/ajad110df18_hr.jpg",
-            "caption": ""
+            "caption": "<strong>Figure 18.</strong> The complete figure set (19 images) is available in the <a href=\"https://iopscience.iop.org/article/10.3847/1538-3881/ad110d#ajad110df18\" rel=\"noopener noreferrer\">online journal</a>."
         },
         {
+            "id": "ajad110df19",
             "url": "http://www.astroexplorer.org/details/ajad110df19",
             "image_path": "https://s3.amazonaws.com/aasie/images/0004-6256/167/1/null/ajad110df19_hr.jpg",
-            "caption": ""
+            "caption": "<strong>Figure 19.</strong> The PDFs of <em>I</em> <sub>F770W</sub> across different resolutions from native F770W (0.\u2033269) down to 8.\u20330 for each target. The PDFs are colored by the FWHM of the Gaussian PSF at each resolution. With lower resolution, the overall PDFs become narrower and shift to lower intensities."
         },
         {
+            "id": "ajad110df20",
             "url": "http://www.astroexplorer.org/details/ajad110df20",
             "image_path": "https://s3.amazonaws.com/aasie/images/0004-6256/167/1/null/ajad110df20_hr.jpg",
-            "caption": ""
+            "caption": "<strong>Figure 20.</strong> The PDFs of <em>N</em>(H) across different resolutions from native F770W (0.\u2033269) down to 8.\u20330 for each target. The PDFs are colored by the FWHM of the Gaussian PSF at each resolution. With lower resolution, the overall PDFs become narrower and shift to lower column densities."
         },
         {
+            "id": "ajad110df21",
             "url": "http://www.astroexplorer.org/details/ajad110df21",
             "image_path": "https://s3.amazonaws.com/aasie/images/0004-6256/167/1/null/ajad110df21_hr.jpg",
-            "caption": ""
+            "caption": "<strong>Figure 21.</strong> Summarizing the fractional variation in diffuse column density PDF mean (<em>\u03bc</em> <sub> <em>N</em> </sub>) and dispersion (<em>\u03c3</em> <sub> <em>N</em> </sub>) and in diffuse F770W emission PDF mean (<em>\u03bc</em>) and dispersion (<em>\u03c3</em>)."
         }
     ]
 }
