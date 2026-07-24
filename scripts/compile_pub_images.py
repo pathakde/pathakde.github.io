@@ -190,7 +190,7 @@ def get_caption(url) -> str:
         figure_number = match.group() if match else ""
 
         # parse caption content
-        cleaned_caption_content = nh3.clean(str(image_captions[0])) if image_captions else ""
+        cleaned_caption_content = nh3.clean(str(image_captions[0]), url_relative=("rewrite_with_base", "http://www.astroexplorer.org")) if image_captions else ""
         cleaned_caption_content = strip_outer_div_or_p(cleaned_caption_content)
         if figure_number:
             return f"<strong>{figure_number}</strong> {cleaned_caption_content}"

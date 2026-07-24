@@ -40,7 +40,7 @@
             "id": "ajad110df7",
             "url": "http://www.astroexplorer.org/details/ajad110df7",
             "image_path": "https://s3.amazonaws.com/aasie/images/0004-6256/167/1/null/ajad110df7_hr.jpg",
-            "caption": "<strong>Figure 7.</strong> The disk PDFs (in black) of our sample of 19 galaxies at 7.7, 10, 11.3, and 21 <em>\u03bc</em>m decomposed by contributions from H <small>II</small> regions (blue) and outside (red). These are the same PDFs as in Figure <a href=\"/details/ajad110df6\" rel=\"noopener noreferrer\">6</a>, but in log-stretch to highlight the power-law component. The best-fit power law is shown in dark blue. The corresponding best-fit H <small>II</small> region power-law index <em>m</em> and log\u2013log intercept <em>c</em> for each PDF are included for each panel."
+            "caption": "<strong>Figure 7.</strong> The disk PDFs (in black) of our sample of 19 galaxies at 7.7, 10, 11.3, and 21 <em>\u03bc</em>m decomposed by contributions from H <small>II</small> regions (blue) and outside (red). These are the same PDFs as in Figure <a href=\"http://www.astroexplorer.org/details/ajad110df6\" rel=\"noopener noreferrer\">6</a>, but in log-stretch to highlight the power-law component. The best-fit power law is shown in dark blue. The corresponding best-fit H <small>II</small> region power-law index <em>m</em> and log\u2013log intercept <em>c</em> for each PDF are included for each panel."
         },
         {
             "id": "ajad110df8",
@@ -70,7 +70,7 @@
             "id": "ajad110df12",
             "url": "http://www.astroexplorer.org/details/ajad110df12",
             "image_path": "https://s3.amazonaws.com/aasie/images/0004-6256/167/1/null/ajad110df12_hr.jpg",
-            "caption": "<strong>Figure 12.</strong> 21 <em>\u03bc</em>m images and PDFs of the galactic disk of NGC 0628 convolved to progressively lower resolutions, similar to Figure <a href=\"/details/ajad110df11\" rel=\"noopener noreferrer\">11</a>\u20140.\u2033674 (the native resolution of the F2100W filter), 0.\u203385 (our working resolution), 4.\u20330, 7.\u20335, and 15.\u20330. This corresponds to physical resolutions of 32, 40, 190, 356, and 712 pc, respectively, in NGC 0628. While the power law is very prominent at high resolution, the power-law component is rapidly diluted at lower resolutions that do not resolve individual star-forming regions in the disk."
+            "caption": "<strong>Figure 12.</strong> 21 <em>\u03bc</em>m images and PDFs of the galactic disk of NGC 0628 convolved to progressively lower resolutions, similar to Figure <a href=\"http://www.astroexplorer.org/details/ajad110df11\" rel=\"noopener noreferrer\">11</a>\u20140.\u2033674 (the native resolution of the F2100W filter), 0.\u203385 (our working resolution), 4.\u20330, 7.\u20335, and 15.\u20330. This corresponds to physical resolutions of 32, 40, 190, 356, and 712 pc, respectively, in NGC 0628. While the power law is very prominent at high resolution, the power-law component is rapidly diluted at lower resolutions that do not resolve individual star-forming regions in the disk."
         },
         {
             "id": "ajad110df13",
