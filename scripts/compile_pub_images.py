@@ -1,16 +1,16 @@
 import json
 import os
+import re
 from dataclasses import dataclass
 from pathlib import Path
 
 import frontmatter
+import nh3
 import requests
+from bs4 import BeautifulSoup
 from dotenv import find_dotenv, load_dotenv
 from loguru import logger
 from natsort import natsorted
-from bs4 import BeautifulSoup
-import re
-import nh3
 
 
 @dataclass
@@ -24,7 +24,7 @@ class Figure:
 class FigureWithCaption:
     figure: Figure
     caption: str
-    
+
 
 def get_figures(bibcode: str, api_key: str) -> list[Figure]:
     res = requests.get(
@@ -153,6 +153,7 @@ class FigureCaption:
     figure_number: str
     content: str
 
+
 def get_caption(url) -> str:
     def get_html(url: str) -> str:
         response = requests.get(url)
@@ -160,11 +161,14 @@ def get_caption(url) -> str:
         if response.status_code == 200:
             return response.text
         else:
-            logger.error("Failed to fetch page. status={status} | text={text}", status=response.status_code, text=response.text)
-    
+            logger.error(
+                "Failed to fetch page. status={status} | text={text}",
+                status=response.status_code,
+                text=response.text,
+            )
 
     def strip_outer_div_or_p(html_string: str):
-        # Matches a starting <div or <p tag, capturing the tag name, 
+        # Matches a starting <div or <p tag, capturing the tag name,
         # allows attributes inside the tag, and ensures it ends with the matching closure.
         pattern = r"^<(div|p)(?:\s+[^>]*)?>(.*)</\1>$"
 
@@ -172,12 +176,12 @@ def get_caption(url) -> str:
         while True:
             cleaned_string = cleaned_string.strip()
             match = re.match(pattern, cleaned_string, re.DOTALL)
-            
+
             if match:
                 cleaned_string = match.group(2)
             else:
                 return cleaned_string
-        
+
     def parse_caption(html_string):
         soup = BeautifulSoup(html_string, "html.parser")
         image_figures = soup.find_all(id="image-figure")
@@ -186,11 +190,22 @@ def get_caption(url) -> str:
         # TODO: if more than one of either log error do nothing
 
         # parse figure number
-        match = re.search(r"Figure \d+\.?", image_figures[0].get_text()) if image_figures else ""
+        match = (
+            re.search(r"Figure \d+\.?", image_figures[0].get_text())
+            if image_figures
+            else ""
+        )
         figure_number = match.group() if match else ""
 
         # parse caption content
-        cleaned_caption_content = nh3.clean(str(image_captions[0]), url_relative=("rewrite_with_base", "http://www.astroexplorer.org")) if image_captions else ""
+        cleaned_caption_content = (
+            nh3.clean(
+                str(image_captions[0]),
+                url_relative=("rewrite_with_base", "http://www.astroexplorer.org"),
+            )
+            if image_captions
+            else ""
+        )
         cleaned_caption_content = strip_outer_div_or_p(cleaned_caption_content)
         if figure_number:
             return f"<strong>{figure_number}</strong> {cleaned_caption_content}"
@@ -205,6 +220,7 @@ def caption_figures(figures: list[Figure]) -> list[FigureWithCaption]:
         caption = get_caption(f.url)
         figures_with_caption.append(FigureWithCaption(figure=f, caption=caption))
     return figures_with_caption
+
 
 def main():
     if not find_dotenv():
