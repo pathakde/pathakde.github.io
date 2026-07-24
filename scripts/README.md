@@ -1,30 +1,28 @@
 # Setup
 ```bash
-# checked on python3.13
-
-# install packages into .venv
-make install
-
-# activate .venv
-source .venv/bin/activate
-
-# run script [example]
-python cv_markdown_to_json.py
+# create conda env from environment.yml
+# make sure you have conda installed already
+make env
+conda activate dpsite
 ```
 
-# Remember to freeze requirements after installing new packages
+# Remember to export env after installing new packages
 ```bash
-source .venv/bin/activate
-pip install [package]
-make freeze
+conda activate dpsite
+
+# try to use conda install only; `make export` relies on this since it uses "--from-history" (see Makefile).
+conda install [package]
+
+# make sure you have the conda-forge channel (check ); some packages are only there
+# to check: conda config --show channels
+# to add: conda config --append channels conda-forge
+make export 
 ```
 
 # Format
 ```bash
-source .venv/bin/activate
+conda activate dpsite
 
 black {}
 isort --profile black {}
 ```
-TODO: learn to use uv
-TODO: move python dependency management to root
