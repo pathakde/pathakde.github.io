@@ -46,23 +46,38 @@ def get_figures(bibcode: str, api_key: str) -> list[Figure]:
 
             return Figure(url=highres, image_path=highres_link, id=file_id)
 
-        figures = res.json()["figures"]
+        body = res.json()
+        figures = body["figures"]
         return list(map(get_highres_link, figures))
     else:
         return res.text
 
 
-def get_bibcodes(dir_path) -> list[str]:
+@dataclass
+class Publication:
+    bibcode: str
+    in_press: str
+    in_review: str
+
+    def published(self):
+        return not self.in_press and not self.in_review
+
+
+def get_publications(dir_path) -> list[Publication]:
     # for every file in _publications,
     # get bibcode from frontmatter
-    bibcodes = []
+    publications = []
     for file in dir_path.glob("*.md"):
         metadata = frontmatter.load(file).metadata
         bibcode = metadata.get("bibcode")
-        if bibcode:
-            bibcodes.append(bibcode)
+        in_press = metadata.get("in_press")
+        in_review = metadata.get("in_review")
 
-    return bibcodes
+        if bibcode:
+            publications.append(
+                Publication(bibcode=bibcode, in_press=in_press, in_review=in_review)
+            )
+    return publications
 
 
 def make_figures_dir(bibcode: str) -> str:
@@ -235,15 +250,21 @@ def main():
         return
 
     publications_dir = get_publications_dir()
-    for bibcode in get_bibcodes(publications_dir):
+    for publication in get_publications(publications_dir):
         logger.debug("========")
-        logger.debug(f"bibcode={bibcode}")
+        logger.debug(f"publication={publication}")
 
-        figures = get_figures(bibcode, ADS_API_KEY)
+        if not publication.published():
+            logger.debug(f"skipping because not published")
+            continue
 
+        bibcode = publication.bibcode
+
+        figures = None
         # Download figures
         figures_dir_path = make_figures_dir(bibcode)
         if DOWNLOAD_FIGURES and has_no_images(figures_dir_path):
+            figures = get_figures(bibcode, ADS_API_KEY)
             logger.debug("downloading figures...")
 
             for figure in figures:
@@ -255,7 +276,10 @@ def main():
         publications_data_dir = make_publications_data_dir(bibcode)
         figures_json_file_path = publications_data_dir / "figures.json"
 
-        if figures and not figures_json_file_path.is_file():
+        if not figures_json_file_path.is_file():
+            if not figures:
+                figures = get_figures(bibcode, ADS_API_KEY)
+
             logger.debug("writing figures.json metadata...")
 
             figures_with_caption = caption_figures(figures)
