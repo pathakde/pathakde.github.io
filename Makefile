@@ -1,0 +1,12 @@
+env:
+	conda env create -f environment.yml
+
+export:
+	conda env export --from-history --no-builds | grep -v "^prefix: " > environment.yml
+
+format:
+	black .
+	isort --profile black .
+
+local-site:
+	jekyll serve -l -H localhost
