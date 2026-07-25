@@ -33,9 +33,11 @@ def get_figures(bibcode: str, api_key: str) -> list[Figure]:
     )
 
     if res.ok:
-
-        def get_highres_link(obj):
-            figure = obj["images"][0]
+        def get_figure(obj):
+            images = obj["images"]
+            if len(images) > 1:
+                logger.warning("more than one image found. selecting first from list... {images}", images=images)
+            figure = images[0]
 
             thumbnail = figure["thumbnail"]
             highres = figure["highres"]  # link to astroexplorer
@@ -48,7 +50,7 @@ def get_figures(bibcode: str, api_key: str) -> list[Figure]:
 
         body = res.json()
         figures = body["figures"]
-        return list(map(get_highres_link, figures))
+        return list(map(get_figure, figures))
     else:
         return res.text
 
