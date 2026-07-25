@@ -12,5 +12,5 @@ disable_footer: true
 {{ site.baseurl }}
 
 <div class="cv-pdf">
-  <iframe class="pdf" src="{{ site.baseurl }}/assets/pdfs/PhD_CV.pdf#navpanes=0" type='application/pdf'></iframe>
+  <object class="pdf" data="{{ site.baseurl }}/assets/pdfs/PhD_CV.pdf#navpanes=0" type='application/pdf'></object>
 </div>
