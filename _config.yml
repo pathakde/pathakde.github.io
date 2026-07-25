@@ -280,6 +280,7 @@ defaults:
       share: true
       comments: true
       disable_footer: true
+      use_math: true
   # _portfolio
   - scope:
       path: ""
