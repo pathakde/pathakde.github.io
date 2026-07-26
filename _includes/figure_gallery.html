@@ -48,7 +48,13 @@
       <figure>
         {{ img.figure_content }}
 
-        {% if img.caption %}
+        {% assign caption_override = site.data.publications_overrides[clean_bibcode].overrides[img.id].caption %}
+
+        {% if caption_override %}
+          <figcaption>
+            {{ caption_override | markdownify }}
+          </figcaption>
+        {% elsif img.caption %}
           <figcaption>
             {{ img.caption }}
           </figcaption>

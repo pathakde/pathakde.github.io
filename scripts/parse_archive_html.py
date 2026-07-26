@@ -2,6 +2,7 @@ from dataclasses import dataclass
 
 import nh3
 from bs4 import BeautifulSoup
+from coolname import generate
 
 # nh3 whitelist
 # 1. Define complete MathML tags (Presentation & Container layouts)
@@ -99,6 +100,7 @@ def parse_figure_html(html_content: str, arxiv_id: str) -> list[ArxivFigure]:
     arxiv_figures: list[ArxivFigure] = []
 
     for figure in figures:
+        figure_id = figure.get("id", "")
         # find outer most figcaption (that's also not nested in another figure)
         fig_caption = figure.find("figcaption", recursive=False)
         if fig_caption and not fig_caption.text.startswith("Figure"):
@@ -111,7 +113,7 @@ def parse_figure_html(html_content: str, arxiv_id: str) -> list[ArxivFigure]:
             name = child.name
             if name != "figcaption":
                 if arxiv_anchor is None:
-                    arxiv_anchor = soup.new_tag("a", href=f"#{figure.get("id","")}")
+                    arxiv_anchor = soup.new_tag("a", href=f"#{figure_id}")
                     child.wrap(arxiv_anchor)
                 else:
                     arxiv_anchor.append(child)
@@ -148,7 +150,7 @@ def parse_figure_html(html_content: str, arxiv_id: str) -> list[ArxivFigure]:
 
         arxiv_figures.append(
             ArxivFigure(
-                id=arxiv_id,
+                id=figure_id if figure_id else generate(4),
                 content=str(cleaned_content) if cleaned_content else "",
                 caption=cleaned_caption.decode_contents() if cleaned_caption else "",
             )

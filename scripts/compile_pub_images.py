@@ -176,6 +176,7 @@ def write_figures_json_from_arxiv(arxiv_figures: list[ArxivFigure], save_path):
         "figures": list(
             map(
                 lambda f: {
+                    "id": f.id,
                     "figure_content": f.content,
                     "caption": f.caption,
                 },

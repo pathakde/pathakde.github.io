@@ -14,9 +14,10 @@ conda activate dpsite
 # try to use conda install only; `make export` relies on this since it uses "--from-history" (see Makefile).
 conda install [package]
 
-# make sure you have the conda-forge channel (check ); some packages are only there
+# make sure you have the conda-forge and main-x channels; some packages are only there
 # to check: conda config --show channels
-# to add: conda config --append channels conda-forge
+# to add:
+#   conda config --append channels conda-forge
 make export 
 ```
 
