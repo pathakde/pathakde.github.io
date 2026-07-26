@@ -1,12 +1,17 @@
 overrides:
+  S2.F1:
+    caption: |
+      Figure 1: Zoom-ins showing a few example galaxies from our sample in F300M, F770W<sub>ss</sub>, 
+      F2100W<sub>ss</sub>, and \( R_{\rm PAH}^* \), 
+      with <cite>M. Querejeta<span> et al.</span> (<a href="https://arxiv.org/html/2607.19512v1#bib.bib19" rel=\"noopener noreferrer\" title=\"Stellar structures, molecular gas, and star formation across the PHANGS sample of nearby galaxies\">2021</a>)</cite> morphological environment masks for centers (blue) and bars (red) overlaid for reference.
   S4.F11:
     caption: |
       Figure 11: B. T. Draine et al. (2021) dust model predictions for varying PAH charge and 
-      sizes (‘grids’)) assuming three different radiation field hardness models at \\( \log U=1 \\) 
+      sizes (‘grids’)) assuming three different radiation field hardness models at \( \log U=1 \) 
       --- modified MMP (black), M31 bulge (red), and a 3 Myr-old starburst (blue); and a 3 Myr-old starburst 
-      at \\( \log U=3 \\). Arrows show the direction in which grids shift due to increasing PAH ionization, 
-      size, and \\( \log U \\). Modulo a 0.1 dex offset in F1000W between model grids and observations, 
-      changes in mid-IR colors for CMZs relative disks are consistent with increasing \\( U \\), 
+      at \( \log U=3 \). Arrows show the direction in which grids shift due to increasing PAH ionization, 
+      size, and \( \log U \). Modulo a 0.1 dex offset in F1000W between model grids and observations, 
+      changes in mid-IR colors for CMZs relative disks are consistent with increasing \( U \), 
       while star-formation deserts or bulges lie off the standard grids. In darker colors 
       (overlapping grey, maroon, and navy) we show the model predictions at the limiting case where 
-      PAHs are 100% neutral PAH\\( ^0 \\) for \\( \log U = 1 \\).
+      PAHs are 100% neutral PAH\( ^0 \) for \( \log U = 1 \).
