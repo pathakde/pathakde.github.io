@@ -4,6 +4,7 @@
 # make sure you have conda installed already
 make env
 conda activate dpsite
+conda-develop . # from base of this project
 ```
 
 # Remember to export env after installing new packages

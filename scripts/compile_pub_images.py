@@ -11,7 +11,9 @@ from bs4 import BeautifulSoup
 from dotenv import find_dotenv, load_dotenv
 from loguru import logger
 from natsort import natsorted
-from scripts.parse_archive_html import parse_figure_html, ArxivFigure
+
+from scripts.parse_archive_html import ArxivFigure, parse_figure_html
+
 
 @dataclass
 class Figure:
@@ -83,7 +85,12 @@ def get_publications(dir_path) -> list[Publication]:
 
         if bibcode:
             publications.append(
-                Publication(bibcode=bibcode, in_press=in_press, in_review=in_review, arxiv_html=arxiv_html)
+                Publication(
+                    bibcode=bibcode,
+                    in_press=in_press,
+                    in_review=in_review,
+                    arxiv_html=arxiv_html,
+                )
             )
     return publications
 
@@ -121,6 +128,7 @@ def download_graphic(link: str, dir_path):
     if response.ok:
         with open(save_path, "wb") as file:
             file.write(response.content)
+
 
 def get_arxiv_html(link: str):
     response = requests.get(link)
@@ -168,16 +176,16 @@ def write_figures_json_from_arxiv(arxiv_figures: list[ArxivFigure], save_path):
         "figures": list(
             map(
                 lambda f: {
-                    "figure_content": f.figure.image_path,
+                    "figure_content": f.content,
                     "caption": f.caption,
                 },
-                natsorted(arxiv_figures, key=lambda f: f.figure.url),
+                arxiv_figures,
             )
         )
     }
 
     with open(save_path, "w", encoding="utf-8") as file:
-        json.dump(data, file, indent=4)
+        json.dump(data, file, indent=4, ensure_ascii=False)
 
 
 def has_no_images(directory_path):
@@ -281,29 +289,30 @@ def main():
         return
 
     publications_dir = get_publications_dir()
+
     for publication in get_publications(publications_dir):
+        bibcode = publication.bibcode
+
         logger.debug("========")
         logger.debug(f"publication={publication}")
 
-
         publications_data_dir = make_publications_data_dir(bibcode)
         figures_json_file_path = publications_data_dir / "figures.json"
-    
+
         if not publication.published():
-            if not publication.arxiv_html:
+            arxiv_html = publication.arxiv_html
+            if not arxiv_html:
                 logger.debug(f"skipping because not published")
                 continue
 
             if not figures_json_file_path.is_file():
                 logger.debug("writing figures.json metadata from arxiv...")
 
-                arxiv_html = get_arxiv_html()
+                arxiv_html_content = get_arxiv_html(arxiv_html)
                 arxiv_id = publication.arxiv_html.split("/")[-1]
-                arxiv_figures = parse_figure_html(arxiv_html, arxiv_id)
+                arxiv_figures = parse_figure_html(arxiv_html_content, arxiv_id)
                 write_figures_json_from_arxiv(arxiv_figures, figures_json_file_path)
         else:
-            bibcode = publication.bibcode
-
             figures = None
             # Download figures
             figures_dir_path = make_figures_dir(bibcode)
@@ -326,10 +335,13 @@ def main():
 
                 figures_with_caption = caption_figures(figures)
 
-                bad_links = write_figures_json(figures_with_caption, figures_json_file_path)
+                bad_links = write_figures_json(
+                    figures_with_caption, figures_json_file_path
+                )
                 if bad_links:
                     logger.error(
-                        "some links weren't retrievable: {bad_links}", bad_links=bad_links
+                        "some links weren't retrievable: {bad_links}",
+                        bad_links=bad_links,
                     )
 
                 logger.debug("writing figures.json metadata...done")

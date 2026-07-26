@@ -111,9 +111,7 @@ def parse_figure_html(html_content: str, arxiv_id: str) -> list[ArxivFigure]:
             name = child.name
             if name != "figcaption":
                 if arxiv_anchor is None:
-                    arxiv_anchor = soup.new_tag(
-                        "a", href=f"{arxiv_id}#{figure.get("id")}"
-                    )
+                    arxiv_anchor = soup.new_tag("a", href=f"#{figure.get("id","")}")
                     child.wrap(arxiv_anchor)
                 else:
                     arxiv_anchor.append(child)
@@ -123,7 +121,10 @@ def parse_figure_html(html_content: str, arxiv_id: str) -> list[ArxivFigure]:
             href = anchor.get("href")
             if href:
                 if "://" not in href and not href.startswith("/"):
-                    anchor["href"] = "/html/" + href
+                    if href.startswith("#"):
+                        anchor["href"] = f"/html/{arxiv_id}{href}"
+                    else:
+                        anchor["href"] = f"/html/{arxiv_id}/{href}"
 
         # prepend img srcs with /html/ so that they properly point out to arxiv
         for img in figure.find_all("img"):
@@ -149,7 +150,7 @@ def parse_figure_html(html_content: str, arxiv_id: str) -> list[ArxivFigure]:
             ArxivFigure(
                 id=arxiv_id,
                 content=str(cleaned_content) if cleaned_content else "",
-                caption=str(cleaned_caption.unwrap()) if cleaned_caption else "",
+                caption=cleaned_caption.decode_contents() if cleaned_caption else "",
             )
         )
 

@@ -44,6 +44,16 @@
           </figcaption>
         {% endif %}
     </figure>
+    {% elsif img.figure_content %}
+      <figure>
+        {{ img.figure_content }}
+
+        {% if img.caption %}
+          <figcaption>
+            {{ img.caption }}
+          </figcaption>
+        {% endif %}
+      </figure>
     {% else %}
       <img src=
         {% if img.image_path contains "://" %}
