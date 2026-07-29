@@ -4,6 +4,7 @@ import nh3
 from bs4 import BeautifulSoup
 from coolname import generate
 
+
 @dataclass
 class ArxivFigure:
     id: str
@@ -52,7 +53,6 @@ def parse_figure_html(html_content: str, arxiv_id: str) -> list[ArxivFigure]:
             if src:
                 if "://" not in src and not src.startswith("/"):
                     img["src"] = "/html/" + src
-
 
         # replace all math tags with a simpler span
         for math in figure.find_all("math"):

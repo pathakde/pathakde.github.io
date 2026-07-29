@@ -7,11 +7,12 @@ from pathlib import Path
 import frontmatter
 import nh3
 import requests
+import yaml
 from bs4 import BeautifulSoup
 from dotenv import find_dotenv, load_dotenv
 from loguru import logger
 from natsort import natsorted
-import yaml
+
 from scripts.parse_archive_html import ArxivFigure, parse_figure_html
 
 
@@ -186,7 +187,9 @@ def write_figures_yml_from_arxiv(arxiv_figures: list[ArxivFigure], save_path):
     }
 
     with open(save_path, "w", encoding="utf-8") as file:
-        yaml.dump(data, file, default_flow_style=False, allow_unicode=True, sort_keys=False)
+        yaml.dump(
+            data, file, default_flow_style=False, allow_unicode=True, sort_keys=False
+        )
 
 
 def has_no_images(directory_path):
