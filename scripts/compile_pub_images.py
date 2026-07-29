@@ -11,7 +11,7 @@ from bs4 import BeautifulSoup
 from dotenv import find_dotenv, load_dotenv
 from loguru import logger
 from natsort import natsorted
-
+import yaml
 from scripts.parse_archive_html import ArxivFigure, parse_figure_html
 
 
@@ -171,7 +171,7 @@ def write_figures_json(figuresWithCaption: list[FigureWithCaption], save_path):
         json.dump(data, file, indent=4)
 
 
-def write_figures_json_from_arxiv(arxiv_figures: list[ArxivFigure], save_path):
+def write_figures_yml_from_arxiv(arxiv_figures: list[ArxivFigure], save_path):
     data = {
         "figures": list(
             map(
@@ -186,7 +186,8 @@ def write_figures_json_from_arxiv(arxiv_figures: list[ArxivFigure], save_path):
     }
 
     with open(save_path, "w", encoding="utf-8") as file:
-        json.dump(data, file, indent=4, ensure_ascii=False)
+        yaml.dump(data, file, default_flow_style=False, allow_unicode=True, sort_keys=False)
+        # json.dump(data, file, indent=4, ensure_ascii=False)
 
 
 def has_no_images(directory_path):
@@ -299,6 +300,7 @@ def main():
 
         publications_data_dir = make_publications_data_dir(bibcode)
         figures_json_file_path = publications_data_dir / "figures.json"
+        figures_yml_file_path = publications_data_dir / "figures.yml"
 
         if not publication.published():
             arxiv_html = publication.arxiv_html
@@ -306,13 +308,13 @@ def main():
                 logger.debug(f"skipping because not published")
                 continue
 
-            if not figures_json_file_path.is_file():
-                logger.debug("writing figures.json metadata from arxiv...")
+            if not figures_yml_file_path.is_file():
+                logger.debug("writing figures.yml metadata from arxiv...")
 
                 arxiv_html_content = get_arxiv_html(arxiv_html)
                 arxiv_id = publication.arxiv_html.split("/")[-1]
                 arxiv_figures = parse_figure_html(arxiv_html_content, arxiv_id)
-                write_figures_json_from_arxiv(arxiv_figures, figures_json_file_path)
+                write_figures_yml_from_arxiv(arxiv_figures, figures_yml_file_path)
         else:
             figures = None
             # Download figures
