@@ -1,0 +1,21 @@
+overrides:
+  S4.F11:
+    caption: '<span>Figure 11: </span> Draine et al. (2021) dust model predictions for varying PAH charge and 
+      sizes (‘grids’)) assuming three different radiation field hardness models at \( \log U=1 \) 
+      – modified MMP (black), M31 bulge (red), and a
+      3 Myr-old starburst (blue); and a 3 Myr-old starburst at \( \log U=3 \). Arrows
+      show the direction in which grids shift due to increasing PAH ionization, size,
+      and \( \log U \). Modulo a 0.1 dex offset in F1000W between model grids and observations,
+      changes in mid-IR colors for CMZs relative disks are consistent with increasing
+      \( U \), while star-formation deserts or bulges lie off the standard grids. fig:mir-colors-with-grids '
+  S4.F15:
+    caption: '<span>Figure 15: </span>Mid-IR and near-IR PAH color-color variation by
+      environment.
+
+      \( \rm F770W_{ss}/F1130W_{ss} \) and \( \rm F335M_{PAH}/F770W_{ss} \) (small,
+      neutral PAH-to-small, ionized PAH) ratios vs \( \rm F335M_{PAH}/F1130W_{ss} \)
+      (small, neutral PAH-to-larger, neutral PAH) ratios.
+      D21 dust model grids at \( \log U=1 \) included for comparison, with direction of variation 
+      due to changing PAH charge and size indicated. No significant variation in dust grids is seen 
+      due to varying \( \log U \). The darker lines show the limiting case of 100% neutral PAHs (PAH\(^0\)) 
+      at \( \log U = 1 \) for the three radiation hardness models.'

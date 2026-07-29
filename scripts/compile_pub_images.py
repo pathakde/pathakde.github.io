@@ -7,10 +7,13 @@ from pathlib import Path
 import frontmatter
 import nh3
 import requests
+import yaml
 from bs4 import BeautifulSoup
 from dotenv import find_dotenv, load_dotenv
 from loguru import logger
 from natsort import natsorted
+
+from scripts.parse_archive_html import ArxivFigure, parse_figure_html
 
 
 @dataclass
@@ -34,8 +37,14 @@ def get_figures(bibcode: str, api_key: str) -> list[Figure]:
 
     if res.ok:
 
-        def get_highres_link(obj):
-            figure = obj["images"][0]
+        def get_figure(obj):
+            images = obj["images"]
+            if len(images) > 1:
+                logger.warning(
+                    "more than one image found. selecting first from list... {images}",
+                    images=images,
+                )
+            figure = images[0]
 
             thumbnail = figure["thumbnail"]
             highres = figure["highres"]  # link to astroexplorer
@@ -48,7 +57,7 @@ def get_figures(bibcode: str, api_key: str) -> list[Figure]:
 
         body = res.json()
         figures = body["figures"]
-        return list(map(get_highres_link, figures))
+        return list(map(get_figure, figures))
     else:
         return res.text
 
@@ -58,6 +67,7 @@ class Publication:
     bibcode: str
     in_press: str
     in_review: str
+    arxiv_html: str
 
     def published(self):
         return not self.in_press and not self.in_review
@@ -72,10 +82,16 @@ def get_publications(dir_path) -> list[Publication]:
         bibcode = metadata.get("bibcode")
         in_press = metadata.get("in_press")
         in_review = metadata.get("in_review")
+        arxiv_html = metadata.get("arxiv_html")
 
         if bibcode:
             publications.append(
-                Publication(bibcode=bibcode, in_press=in_press, in_review=in_review)
+                Publication(
+                    bibcode=bibcode,
+                    in_press=in_press,
+                    in_review=in_review,
+                    arxiv_html=arxiv_html,
+                )
             )
     return publications
 
@@ -115,6 +131,13 @@ def download_graphic(link: str, dir_path):
             file.write(response.content)
 
 
+def get_arxiv_html(link: str):
+    response = requests.get(link)
+
+    if response.ok:
+        return response.text
+
+
 def write_figures_json(figuresWithCaption: list[FigureWithCaption], save_path):
     bad_links = []
     for f in figuresWithCaption:
@@ -147,6 +170,26 @@ def write_figures_json(figuresWithCaption: list[FigureWithCaption], save_path):
 
     with open(save_path, "w", encoding="utf-8") as file:
         json.dump(data, file, indent=4)
+
+
+def write_figures_yml_from_arxiv(arxiv_figures: list[ArxivFigure], save_path):
+    data = {
+        "figures": list(
+            map(
+                lambda f: {
+                    "id": f.id,
+                    "figure_content": f.content,
+                    "caption": f.caption,
+                },
+                arxiv_figures,
+            )
+        )
+    }
+
+    with open(save_path, "w", encoding="utf-8") as file:
+        yaml.dump(
+            data, file, default_flow_style=False, allow_unicode=True, sort_keys=False
+        )
 
 
 def has_no_images(directory_path):
@@ -250,47 +293,63 @@ def main():
         return
 
     publications_dir = get_publications_dir()
+
     for publication in get_publications(publications_dir):
+        bibcode = publication.bibcode
+
         logger.debug("========")
         logger.debug(f"publication={publication}")
 
-        if not publication.published():
-            logger.debug(f"skipping because not published")
-            continue
-
-        bibcode = publication.bibcode
-
-        figures = None
-        # Download figures
-        figures_dir_path = make_figures_dir(bibcode)
-        if DOWNLOAD_FIGURES and has_no_images(figures_dir_path):
-            figures = get_figures(bibcode, ADS_API_KEY)
-            logger.debug("downloading figures...")
-
-            for figure in figures:
-                download_graphic(figure.image_path, figures_dir_path)
-
-            logger.debug("downloading figures...done")
-
-        # Write figures.json
         publications_data_dir = make_publications_data_dir(bibcode)
         figures_json_file_path = publications_data_dir / "figures.json"
+        figures_yml_file_path = publications_data_dir / "figures.yml"
 
-        if not figures_json_file_path.is_file():
-            if not figures:
+        if not publication.published():
+            arxiv_html = publication.arxiv_html
+            if not arxiv_html:
+                logger.debug(f"skipping because not published")
+                continue
+
+            if not figures_yml_file_path.is_file():
+                logger.debug("writing figures.yml metadata from arxiv...")
+
+                arxiv_html_content = get_arxiv_html(arxiv_html)
+                arxiv_id = publication.arxiv_html.split("/")[-1]
+                arxiv_figures = parse_figure_html(arxiv_html_content, arxiv_id)
+                write_figures_yml_from_arxiv(arxiv_figures, figures_yml_file_path)
+        else:
+            figures = None
+            # Download figures
+            figures_dir_path = make_figures_dir(bibcode)
+            if DOWNLOAD_FIGURES and has_no_images(figures_dir_path):
                 figures = get_figures(bibcode, ADS_API_KEY)
+                logger.debug("downloading figures...")
 
-            logger.debug("writing figures.json metadata...")
+                for figure in figures:
+                    download_graphic(figure.image_path, figures_dir_path)
 
-            figures_with_caption = caption_figures(figures)
+                logger.debug("downloading figures...done")
 
-            bad_links = write_figures_json(figures_with_caption, figures_json_file_path)
-            if bad_links:
-                logger.error(
-                    "some links weren't retrievable: {bad_links}", bad_links=bad_links
+            # Write figures.json
+
+            if not figures_json_file_path.is_file():
+                if not figures:
+                    figures = get_figures(bibcode, ADS_API_KEY)
+
+                logger.debug("writing figures.json metadata...")
+
+                figures_with_caption = caption_figures(figures)
+
+                bad_links = write_figures_json(
+                    figures_with_caption, figures_json_file_path
                 )
+                if bad_links:
+                    logger.error(
+                        "some links weren't retrievable: {bad_links}",
+                        bad_links=bad_links,
+                    )
 
-            logger.debug("writing figures.json metadata...done")
+                logger.debug("writing figures.json metadata...done")
 
 
 if __name__ == "__main__":

@@ -44,6 +44,20 @@
           </figcaption>
         {% endif %}
     </figure>
+    {% elsif img.figure_content %}
+      <figure>
+        {{ img.figure_content }}
+
+        {% if site.data.publications_overrides[clean_bibcode].overrides[img.id].caption %}
+          <figcaption>
+            {{ site.data.publications_overrides[clean_bibcode].overrides[img.id].caption }}
+          </figcaption>
+        {% elsif img.caption %}
+          <figcaption>
+            {{ img.caption }}
+          </figcaption>
+        {% endif %}
+      </figure>
     {% else %}
       <img src=
         {% if img.image_path contains "://" %}
