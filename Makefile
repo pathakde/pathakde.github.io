@@ -10,3 +10,6 @@ format:
 
 local-site:
 	jekyll serve -l -H localhost
+
+figures:
+	python scripts/compile_pub_images.py
