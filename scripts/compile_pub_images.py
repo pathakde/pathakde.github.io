@@ -186,7 +186,7 @@ def write_figures_yml_from_arxiv(arxiv_figures: list[ArxivFigure], save_path):
     }
 
     with open(save_path, "w", encoding="utf-8") as file:
-        yaml.dump(data, file, default_flow_style=False, allow_unicode=True, sort_keys=False, width=200)
+        yaml.dump(data, file, default_flow_style=False, allow_unicode=True, sort_keys=False)
 
 
 def has_no_images(directory_path):
