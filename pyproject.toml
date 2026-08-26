@@ -23,6 +23,7 @@ dependencies = [
 
 [project.scripts]
 pathakde-github-io = "pathakde_github_io:main"
+figures = "pathakde_github_io.compile_pub_images:main"
 
 [build-system]
 requires = ["uv_build>=0.12.6,<0.13.0"]
