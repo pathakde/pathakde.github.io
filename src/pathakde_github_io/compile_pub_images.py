@@ -13,7 +13,7 @@ from dotenv import find_dotenv, load_dotenv
 from loguru import logger
 from natsort import natsorted
 
-from scripts.parse_archive_html import ArxivFigure, parse_figure_html
+from pathakde_github_io.parse_archive_html import ArxivFigure, parse_figure_html
 
 
 @dataclass

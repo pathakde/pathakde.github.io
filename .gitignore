@@ -29,3 +29,5 @@ package-lock.json
 scripts/.venv
 
 scripts/__pycache__
+
+src/pathakde_github_io/__pycache__
