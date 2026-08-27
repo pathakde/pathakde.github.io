@@ -3,10 +3,10 @@
 
 <div class="carousel__holder">
     <div id="carousel{{ number }}" class="carousel">
-        <div class="carousel__track">
-          <ul class="carousel__content">
+        <div class="carousel">
+          <ul class="carousel-ul" id="carousel-ul{{ number }}">
             {% for item in figures %}
-            <li class="carousel__slide" id="carousel__slide-{{ number }}" style="background-image: url('{{ item.image_path }}');"></li>
+            <li class="carousel-li" id="carousel-li{{ number }}" style="background-image: url('{{ item.image_path }}');"></li>
             {% endfor %}
           </ul>
         </div>
@@ -14,135 +14,103 @@
 </div>
 
 <style>
-.carousel__holder{
-  padding: 5px;
+.carousel-ul {
+  width: 600px;
+  height: 600px;
+  padding: 20px;
+  display: flex;
+  gap: 4vw;
 }
-
-.carousel__content {
-  width: 70vw;
-  height: 300px;
-  padding: 10px;
-
-  overflow-x: scroll;
-  scroll-snap-type: x mandatory;
-
-  columns: 1;
-  text-align: center;
-}
-
-.carousel__slide {
+.carousel-li {
   list-style-type: none;
-
-  display: inline-block;
-  height: 100%;
-  width: 200px;
-
   background-color: #eeeeee;
   border: 1px solid #dddddd;
   padding: 20px;
-  margin: 0 10px;
 
-  text-align: left;
+  flex: 0 0 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
-.carousel__content::column {
+.carousel-ul {
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+}
+.carousel-li {
   scroll-snap-align: center;
 }
 
-
-.carousel__content::scroll-button(*) {
+#carousel-ul{{number}}::scroll-button(*) {
   border: 0;
   font-size: 2rem;
   background: none;
   color: black;
   opacity: 0.7;
   cursor: pointer;
-
-  position: absolute;
 }
 
-.carousel__content::scroll-button(*):hover,
-.carousel__content::scroll-button(*):focus {
+#carousel-ul{{number}}::scroll-button(*):hover,
+#carousel-ul{{number}}::scroll-button(*):focus {
   opacity: 1;
 }
 
-.carousel__content::scroll-button(*):active {
+#carousel-ul{{number}}::scroll-button(*):active {
   translate: 1px 1px;
 }
 
-.carousel__content::scroll-button(*):disabled {
+#carousel-ul{{number}}::scroll-button(*):disabled {
   opacity: 0.2;
   cursor: unset;
 }
-
-.carousel__content::scroll-button(left) {
-  content: "◄";
+#carousel-ul{{number}}::scroll-button(left) {
+  content: "◄" / "Previous";
 }
 
-.carousel__content::scroll-button(right) {
-  content: "►";
+#carousel-ul{{number}}::scroll-button(right) {
+  content: "►" / "Next";
+}
+#carousel-ul{{number}} {
+  anchor-name: --carousel-{{number}};
 }
 
-.carousel__content {
-  /* anchor-name: --my-carousel; */
-  anchor-name: --my-carousel;
-}
-
-.carousel__content::scroll-button(left) {
+#carousel-ul{{number}}::scroll-button(*) {
   position: absolute;
-  position-anchor: --my-carousel;
-  left: anchor(left);
+  position-anchor: --carousel-{{number}};
+}
+#carousel-ul{{number}}::scroll-button(left) {
+  right: calc(anchor(left) - 70px);
+  bottom: calc(anchor(top) - 70px);
 }
 
-.carousel__content::scroll-button(right) {
-  position: absolute;
-  position-anchor: --my-carousel;
-  right: anchor(right);
+#carousel-ul{{number}}::scroll-button(right) {
+  left: calc(anchor(right) - 70px);
+  bottom: calc(anchor(top) - 70px);
 }
-
-.carousel__content::-webkit-scrollbar-button {
-  display: none;
-  width: 0px;
-  height: 0px;
-}
-
-.carousel__content {
+#carousel-ul{{number}} {
   scroll-marker-group: after;
 }
+#carousel-ul{{number}}::scroll-marker-group {
+  position: absolute;
+  position-anchor: --carousel-{{number}};
+  top: calc(anchor(bottom) - 70px);
+  justify-self: anchor-center;
 
-.carousel__content::scroll-marker-group {
   display: flex;
   justify-content: center;
-  gap: 40px;
-  padding-bottom: 20px;
+  gap: 20px;
 }
-
-.carousel__content::column::scroll-marker {
-  content: "";
-  height: 1em;
-  width: 1em;
+#carousel-li{{number}}::scroll-marker {
+  content: attr(data-accName);
+  width: 16px;
+  height: 16px;
   background-color: transparent;
   border: 2px solid black;
   border-radius: 50%;
+  overflow: hidden;
+  text-indent: 16px;
 }
-.carousel__content::column::scroll-marker:target-before {
-  border: 2px solid gray;
-}
-
-.carousel__content::column::scroll-marker:target-current {
+#carousel-li{{number}}::scroll-marker:target-current {
   background-color: black;
-  transition: all 0.7s;
 }
-
-.carousel__content::column::scroll-marker:target-after {
-  border: 2px solid cornflowerblue;
-  background-color: cornflowerblue;
-}
-
-.carousel__slide {
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
 </style>
