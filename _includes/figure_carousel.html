@@ -1,0 +1,116 @@
+{% assign figures = include.figures %}
+{% assign number = include.number %}
+
+<div class="carousel__holder">
+    <div id="carousel{{ number }}" class="carousel">
+        <div class="carousel">
+          <ul class="carousel-ul" id="carousel-ul{{ number }}">
+            {% for item in figures %}
+            <li class="carousel-li" id="carousel-li{{ number }}" style="background-image: url('{{ item.image_path }}');"></li>
+            {% endfor %}
+          </ul>
+        </div>
+    </div>
+</div>
+
+<style>
+.carousel-ul {
+  width: 600px;
+  height: 600px;
+  padding: 20px;
+  display: flex;
+  gap: 4vw;
+}
+.carousel-li {
+  list-style-type: none;
+  background-color: #eeeeee;
+  border: 1px solid #dddddd;
+  padding: 20px;
+
+  flex: 0 0 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.carousel-ul {
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+}
+.carousel-li {
+  scroll-snap-align: center;
+}
+
+#carousel-ul{{number}}::scroll-button(*) {
+  border: 0;
+  font-size: 2rem;
+  background: none;
+  color: black;
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+#carousel-ul{{number}}::scroll-button(*):hover,
+#carousel-ul{{number}}::scroll-button(*):focus {
+  opacity: 1;
+}
+
+#carousel-ul{{number}}::scroll-button(*):active {
+  translate: 1px 1px;
+}
+
+#carousel-ul{{number}}::scroll-button(*):disabled {
+  opacity: 0.2;
+  cursor: unset;
+}
+#carousel-ul{{number}}::scroll-button(left) {
+  content: "◄" / "Previous";
+}
+
+#carousel-ul{{number}}::scroll-button(right) {
+  content: "►" / "Next";
+}
+#carousel-ul{{number}} {
+  anchor-name: --carousel-{{number}};
+}
+
+#carousel-ul{{number}}::scroll-button(*) {
+  position: absolute;
+  position-anchor: --carousel-{{number}};
+}
+#carousel-ul{{number}}::scroll-button(left) {
+  right: calc(anchor(left) - 70px);
+  bottom: calc(anchor(top) - 70px);
+}
+
+#carousel-ul{{number}}::scroll-button(right) {
+  left: calc(anchor(right) - 70px);
+  bottom: calc(anchor(top) - 70px);
+}
+#carousel-ul{{number}} {
+  scroll-marker-group: after;
+}
+#carousel-ul{{number}}::scroll-marker-group {
+  position: absolute;
+  position-anchor: --carousel-{{number}};
+  top: calc(anchor(bottom) - 70px);
+  justify-self: anchor-center;
+
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+#carousel-li{{number}}::scroll-marker {
+  content: attr(data-accName);
+  width: 16px;
+  height: 16px;
+  background-color: transparent;
+  border: 2px solid black;
+  border-radius: 50%;
+  overflow: hidden;
+  text-indent: 16px;
+}
+#carousel-li{{number}}::scroll-marker:target-current {
+  background-color: black;
+}
+</style>
