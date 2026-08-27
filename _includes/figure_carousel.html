@@ -27,6 +27,10 @@
   .carousel-ul {
     width: 95%;
   }
+
+  #carousel-ul{{number}}::scroll-marker-group {
+    max-width: 95%;
+  }
 }
 
 /* Mobile and smaller screens */
@@ -114,8 +118,9 @@
   display: flex;
   justify-content: center;
   gap: 5px;
-  flex-wrap: wrap;
+  flex-wrap: wrap balance;
 }
+
 #carousel-li{{number}}::scroll-marker {
   content: attr(data-accName);
   width: 16px;
