@@ -21,6 +21,21 @@
   display: flex;
   gap: 4vw;
 }
+
+/* Tablets and smaller screens */
+@media (max-width: 768px) {
+  .carousel-ul {
+    width: 95%;
+  }
+}
+
+/* Mobile and smaller screens */
+@media (max-width: 412px) {
+  .carousel-ul {
+    height: 400px;
+  }
+}
+
 .carousel-li {
   list-style-type: none;
   background-color: #eeeeee;
@@ -99,6 +114,7 @@
   display: flex;
   justify-content: center;
   gap: 5px;
+  flex-wrap: wrap;
 }
 #carousel-li{{number}}::scroll-marker {
   content: attr(data-accName);
