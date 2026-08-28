@@ -49,6 +49,10 @@ layout: default
       <section class="page__content" itemprop="text">
         {{ content }}
 
+        {% if page.paperurl and page.adsurl %}
+          <p><a href="{{ page.paperurl }}">Download Paper</a> | <a href="{{ page.adsurl }}">See in ADS</a> | <a href="{{ base_path }}{{ page.url }}#figures" rel="permalink">See Figures</a></p>
+        {% endif %}
+  
         {% assign clean_bibcode = page.bibcode | remove: "." %}
         {% assign gallery = site.data.publications[clean_bibcode].figures.figures %}
         {% assign abstract = site.data.publications[clean_bibcode].figures.abstract %}
