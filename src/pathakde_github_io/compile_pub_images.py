@@ -1,7 +1,6 @@
 import json
 import os
 import re
-from dataclasses import dataclass
 from pathlib import Path
 
 import frontmatter
@@ -13,20 +12,13 @@ from dotenv import find_dotenv, load_dotenv
 from loguru import logger
 from natsort import natsorted
 
-from pathakde_github_io.parse_archive_html import ArxivFigure, parse_figure_html
-
-
-@dataclass
-class Figure:
-    id: str
-    url: str
-    image_path: str
-
-
-@dataclass
-class FigureWithCaption:
-    figure: Figure
-    caption: str
+from pathakde_github_io.models import (
+    ArxivFigure,
+    Figure,
+    FigureWithCaption,
+    Publication,
+)
+from pathakde_github_io.parse_archive_html import parse_figure_html
 
 
 def get_figures(bibcode: str, api_key: str) -> list[Figure]:
@@ -62,17 +54,6 @@ def get_figures(bibcode: str, api_key: str) -> list[Figure]:
         return res.text
 
 
-@dataclass
-class Publication:
-    bibcode: str
-    in_press: str
-    in_review: str
-    arxiv_html: str
-
-    def published(self):
-        return not self.in_press and not self.in_review
-
-
 def get_publications(dir_path) -> list[Publication]:
     # for every file in _publications,
     # get bibcode from frontmatter
@@ -99,7 +80,7 @@ def get_publications(dir_path) -> list[Publication]:
 def make_figures_dir(bibcode: str) -> str:
     SCRIPT_DIR = Path(__file__).resolve().parent
     figures_dir_path = (
-        SCRIPT_DIR / ".." /  ".." / "images" / "publications" / bibcode / "figures"
+        SCRIPT_DIR / ".." / ".." / "images" / "publications" / bibcode / "figures"
     )
     figures_dir_path.mkdir(parents=True, exist_ok=True)
 
@@ -218,12 +199,6 @@ def has_no_images(directory_path):
     return True  # Iterated through all files and found no images
 
 
-@dataclass
-class FigureCaption:
-    figure_number: str
-    content: str
-
-
 def get_caption(url) -> str:
     def get_html(url: str) -> str:
         response = requests.get(url)
@@ -340,8 +315,6 @@ def main():
                     download_graphic(figure.image_path, figures_dir_path)
 
                 logger.debug("downloading figures...done")
-
-            # Write figures.json
 
             if not figures_yml_file_path.is_file():
                 if not figures:
