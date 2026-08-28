@@ -1,0 +1,78 @@
+figures:
+- id: apjlae0e70f1
+  url: http://www.astroexplorer.org/details/apjlae0e70f1
+  image_path: https://s3.amazonaws.com/aasie/images/2041-8205/993/1/null/apjlae0e70f1_hr.jpg
+  caption: <strong>Figure 1.</strong> The distribution of masses associated with our
+    sample of ∼18,000 H <small>II</small> regions (solid violins) and the subsample
+    of ∼4000 regions where we can calculate [S <small>II</small>] densities (dashed
+    violins), including contributions from young clusters (<em>M</em><sub>New</sub>,
+    in blue; see Section 2.1.1), ionized gas mass (<em>M</em><sub>Ion</sub>, Strömgren
+    in light green and [S <small>II</small>]-emitting clump in dark green; see Section
+    2.1.2), old stellar mass (<em>M</em><sub>Old</sub>, in red; see Section 2.1.3),
+    initial molecular gas mass (﹩{M}_{{\rm{Mol}}}^{{\rm{init}}}﹩, in pink; Section
+    2.2.1), and initial atomic gas mass (﹩{M}_{{\rm{Atom}}}^{{\rm{init}}}﹩, in gray;
+    Section 2.2.2) as violin plots with the median and 16th–84th range included. Below
+    we show how <em>M</em><sub>New</sub>, <em>M</em><sub>Ion</sub>, <em>M</em><sub>Old</sub>,
+    and ﹩{M}_{{\rm{Mol}}}^{{\rm{init}}}﹩ scale with physical size (<em>R</em><sub>circ</sub>).
+    Contours show the 16th/25th/50th/75th/84th percentiles, and we include ﹩\mathrm{log}\unicode{8210}\mathrm{log}﹩
+    fits (bold lines, repeated as dashed lines in each panel) to the binned medians
+    (hexagons) and the 16th–84th percentile scatter in each bin (error bars on hexagons).
+    Attached to each scatter plot are stacked histograms of region masses for galaxy
+    centers (orange) and disks (blue) (following M. Querejeta et al. 2021), the sample
+    median (dashed line), and the 16th–84th percentile range (hatches).
+- id: apjlae0e70f2
+  url: http://www.astroexplorer.org/details/apjlae0e70f2
+  image_path: https://s3.amazonaws.com/aasie/images/2041-8205/993/1/null/apjlae0e70f2_hr.jpg
+  caption: <strong>Figure 2.</strong> Variation in the different mass components relative
+    to the young cluster mass <em>M</em><sub>New</sub> for the full sample of H <small>II</small>
+    regions, binned in <em>L</em><sub>H</sub><em><sub>α</sub></em><sup>corr</sup>
+    (top left) and <em>R</em><sub>circ</sub> (top right) and summarized as histograms
+    (bottom left). <em>M</em><sub>Ion, S <small>II</small></sub>/<em>M</em><sub>New</sub>
+    (dark green), ﹩{M}_{{\rm{Ion}}},{\rm{Str}}\ddot{{\rm{o}}}{\rm{mgren}}/{M}_{{\rm{New}}}﹩
+    (light green), <em>M</em><sub>Old</sub>/<em>M</em><sub>New</sub> (red), ﹩{M}_{{\rm{Mol}}}^{{\rm{init}}}/{M}_{{\rm{New}}}﹩
+    (dashed pink), and ﹩{M}_{{\rm{Atom}}}^{{\rm{init}}}/{M}_{{\rm{New}}}﹩ (dashed
+    gray) are included for comparison. The dashed line indicates where a mass component
+    is equal to <em>M</em><sub>New</sub>. The bottom right panel includes the distribution
+    of the measured <em>R</em><sub>circ</sub> (black), the estimated radius at which
+    ﹩{M}_{{\rm{New}}}={M}_{{\rm{Mol}}}^{{\rm{init}}}﹩ (dashed pink), and the radius
+    where <em>M</em><sub>New</sub>&nbsp;=&nbsp;<em>M</em><sub>Old</sub> (red).
+- id: apjlae0e70f3
+  url: http://www.astroexplorer.org/details/apjlae0e70f3
+  image_path: https://s3.amazonaws.com/aasie/images/2041-8205/993/1/null/apjlae0e70f3_hr.jpg
+  caption: '<strong>Figure 3.</strong> Top: summarizing H <small>II</small> region-scale
+    SFEs. Data density contours for the 5th/16th/25th/50th/75th/84th/95th percentile
+    SFE using <em>M</em><sub>Ion,S <small>II</small></sub> (dark green), ﹩{M}_{{\rm{Ion}}},{\rm{Str}}\ddot{{\rm{o}}}{\rm{mgren}}﹩
+    (light green), and ﹩{M}_{{\rm{Mol}}}^{{\rm{init}}}﹩ (purple). The full histogram
+    and medians as before (dashed line) for ﹩{M}_{{\rm{Ion}}},{\rm{Str}}\ddot{{\rm{o}}}{\rm{mgren}}﹩
+    and ﹩{M}_{{\rm{Mol}}}^{{\rm{init}}}﹩ are included. We also include the medians
+    using ﹩{M}_{{\rm{Mol}}}^{{\rm{init}}}﹩ at 90–60 pc resolution. Middle: from left
+    to right, the fraction of current gas and stars in young stars, the moderate correlation
+    (Spearman <em>ρ</em>&nbsp;=&nbsp;0.42) and large scatter between <em>M</em><sub>New</sub>
+    and ﹩{\langle {{\rm{\Sigma }}}_{{\rm{Mol}}}\rangle }_{150\,{\rm{pc}}}﹩, and three
+    estimates of <em>M</em><sub>New</sub>/<em>M</em><sub>Cloud</sub> vs. ﹩{\langle
+    {{\rm{\Sigma }}}_{{\rm{Mol}}}\rangle }_{150\,{\rm{pc}}}﹩. Bottom: from left to
+    right, the fraction of initial gas seen in stars and ionized gas, the fraction
+    of depleted initial molecular gas in stars and ionized gas, the statistical local
+    depletion in molecular gas toward H <small>II</small> regions at our fiducial
+    150 pc resolution, and finally, the depletion for smaller samples (where available)
+    at 90 pc (purple) and 60 pc (gray) resolution, relative to the dashed black 1:1
+    line.'
+- id: apjlae0e70f4
+  url: http://www.astroexplorer.org/details/apjlae0e70f4
+  image_path: https://s3.amazonaws.com/aasie/images/2041-8205/993/1/null/apjlae0e70f4_hr.jpg
+  caption: '<strong>Figure 4.</strong> Top left: distribution of H <small>II</small>
+    region escape velocities in galaxy centers and disks. Middle left: distribution
+    of pressures due to H <small>II</small> region self-gravity for ﹩{M}_{{\rm{sh}}}=50
+    \% {M}_{{\rm{Mol}}}^{{\rm{init}}}﹩ (fiducial value; solid gray), ﹩60 \% {M}_{{\rm{Mol}}}^{{\rm{init}}}﹩
+    (dashed gray), and ﹩70 \% {M}_{{\rm{Mol}}}^{{\rm{init}}}﹩ (dotted–dashed gray);
+    disk 〈<em>P</em><sub>DE</sub>〉 (from J. Sun et al. 2023; maroon); fiducial <em>P</em><sub>Grav</sub>&nbsp;+&nbsp;〈<em>P</em><sub>DE</sub>〉
+    (purple), and total <em>P</em><sub>Feedback</sub> (green). Bottom left: distribution
+    of H <small>II</small> region <em>R</em><sub>circ</sub> (gray hatches) and the
+    sizes at which we expect <em>P</em><sub>Grav</sub>&nbsp;=&nbsp;〈<em>P</em><sub>DE</sub>〉
+    (maroon), <em>P</em><sub>Grav</sub>&nbsp;=&nbsp;<em>P</em><sub>Feedback</sub>
+    (green), and <em>P</em><sub>Grav</sub>&nbsp;+&nbsp;〈<em>P</em><sub>DE</sub>〉&nbsp;=&nbsp;<em>P</em><sub>Feedback</sub>
+    (purple). Right: H <small>II</small> region overpressure (shaded blue) vs. underpressure
+    (shaded orange) for <em>P</em><sub>Feedback</sub>/<em>P</em><sub>Grav</sub> (gray)
+    and <em>P</em><sub>Feedback</sub>/(<em>P</em><sub>Grav</sub>&nbsp;+&nbsp;〈<em>P</em><sub>DE</sub>〉)
+    (purple; the dashed line indicates the median, with a summary histogram to the
+    right) with 5th/16th/25th/50th/75th/84th/95th percentile contours.'

@@ -99,7 +99,7 @@ def get_publications(dir_path) -> list[Publication]:
 def make_figures_dir(bibcode: str) -> str:
     SCRIPT_DIR = Path(__file__).resolve().parent
     figures_dir_path = (
-        SCRIPT_DIR / ".." / "images" / "publications" / bibcode / "figures"
+        SCRIPT_DIR / ".." /  ".." / "images" / "publications" / bibcode / "figures"
     )
     figures_dir_path.mkdir(parents=True, exist_ok=True)
 
@@ -108,7 +108,7 @@ def make_figures_dir(bibcode: str) -> str:
 
 def make_publications_data_dir(bibcode: str) -> str:
     SCRIPT_DIR = Path(__file__).resolve().parent
-    dir_path = SCRIPT_DIR / ".." / "_data" / "publications" / bibcode
+    dir_path = SCRIPT_DIR / ".." / ".." / "_data" / "publications" / bibcode
     dir_path.mkdir(parents=True, exist_ok=True)
 
     return dir_path
@@ -116,7 +116,7 @@ def make_publications_data_dir(bibcode: str) -> str:
 
 def get_publications_dir() -> str:
     SCRIPT_DIR = Path(__file__).resolve().parent
-    publications_dir_path = SCRIPT_DIR / ".." / "_publications"
+    publications_dir_path = SCRIPT_DIR / ".." / ".." / "_publications"
 
     return publications_dir_path
 
@@ -138,7 +138,9 @@ def get_arxiv_html(link: str):
         return response.text
 
 
-def write_figures_json(figuresWithCaption: list[FigureWithCaption], save_path):
+def write_figures_file(
+    figuresWithCaption: list[FigureWithCaption], save_path, write_yaml=False
+):
     bad_links = []
     for f in figuresWithCaption:
         figure = f.figure
@@ -168,8 +170,18 @@ def write_figures_json(figuresWithCaption: list[FigureWithCaption], save_path):
         )
     }
 
-    with open(save_path, "w", encoding="utf-8") as file:
-        json.dump(data, file, indent=4)
+    if write_yaml:
+        with open(save_path, "w", encoding="utf-8") as file:
+            yaml.dump(
+                data,
+                file,
+                default_flow_style=False,
+                allow_unicode=True,
+                sort_keys=False,
+            )
+    else:
+        with open(save_path, "w", encoding="utf-8") as file:
+            json.dump(data, file, indent=4)
 
 
 def write_figures_yml_from_arxiv(arxiv_figures: list[ArxivFigure], save_path):
@@ -301,7 +313,6 @@ def main():
         logger.debug(f"publication={publication}")
 
         publications_data_dir = make_publications_data_dir(bibcode)
-        figures_json_file_path = publications_data_dir / "figures.json"
         figures_yml_file_path = publications_data_dir / "figures.yml"
 
         if not publication.published():
@@ -332,16 +343,16 @@ def main():
 
             # Write figures.json
 
-            if not figures_json_file_path.is_file():
+            if not figures_yml_file_path.is_file():
                 if not figures:
                     figures = get_figures(bibcode, ADS_API_KEY)
 
-                logger.debug("writing figures.json metadata...")
+                logger.debug("writing figures.yml metadata...")
 
                 figures_with_caption = caption_figures(figures)
 
-                bad_links = write_figures_json(
-                    figures_with_caption, figures_json_file_path
+                bad_links = write_figures_file(
+                    figures_with_caption, figures_yml_file_path, True
                 )
                 if bad_links:
                     logger.error(
@@ -349,7 +360,7 @@ def main():
                         bad_links=bad_links,
                     )
 
-                logger.debug("writing figures.json metadata...done")
+                logger.debug("writing figures.yml metadata...done")
 
 
 if __name__ == "__main__":
