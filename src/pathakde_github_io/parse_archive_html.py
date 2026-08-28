@@ -1,15 +1,8 @@
-from dataclasses import dataclass
-
 import nh3
 from bs4 import BeautifulSoup
 from coolname import generate
 
-
-@dataclass
-class ArxivFigure:
-    id: str
-    content: str
-    caption: str
+from pathakde_github_io.models import ArxivFigure
 
 
 def parse_figure_html(html_content: str, arxiv_id: str) -> list[ArxivFigure]:

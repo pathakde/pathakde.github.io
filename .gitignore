@@ -31,3 +31,5 @@ scripts/.venv
 scripts/__pycache__
 
 src/pathakde_github_io/__pycache__
+
+src/pathakde_github_io/models/__pycache__

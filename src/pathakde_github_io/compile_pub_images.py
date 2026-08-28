@@ -1,7 +1,6 @@
 import json
 import os
 import re
-from dataclasses import dataclass
 from pathlib import Path
 
 import frontmatter
@@ -13,20 +12,14 @@ from dotenv import find_dotenv, load_dotenv
 from loguru import logger
 from natsort import natsorted
 
-from pathakde_github_io.parse_archive_html import ArxivFigure, parse_figure_html
-
-
-@dataclass
-class Figure:
-    id: str
-    url: str
-    image_path: str
-
-
-@dataclass
-class FigureWithCaption:
-    figure: Figure
-    caption: str
+from pathakde_github_io.models import (
+    ArxivFigure,
+    Figure,
+    FigureWithCaption,
+    Publication,
+    PublicationWithAbstract,
+)
+from pathakde_github_io.parse_archive_html import parse_figure_html
 
 
 def get_figures(bibcode: str, api_key: str) -> list[Figure]:
@@ -62,17 +55,6 @@ def get_figures(bibcode: str, api_key: str) -> list[Figure]:
         return res.text
 
 
-@dataclass
-class Publication:
-    bibcode: str
-    in_press: str
-    in_review: str
-    arxiv_html: str
-
-    def published(self):
-        return not self.in_press and not self.in_review
-
-
 def get_publications(dir_path) -> list[Publication]:
     # for every file in _publications,
     # get bibcode from frontmatter
@@ -99,7 +81,7 @@ def get_publications(dir_path) -> list[Publication]:
 def make_figures_dir(bibcode: str) -> str:
     SCRIPT_DIR = Path(__file__).resolve().parent
     figures_dir_path = (
-        SCRIPT_DIR / ".." / "images" / "publications" / bibcode / "figures"
+        SCRIPT_DIR / ".." / ".." / "images" / "publications" / bibcode / "figures"
     )
     figures_dir_path.mkdir(parents=True, exist_ok=True)
 
@@ -108,7 +90,7 @@ def make_figures_dir(bibcode: str) -> str:
 
 def make_publications_data_dir(bibcode: str) -> str:
     SCRIPT_DIR = Path(__file__).resolve().parent
-    dir_path = SCRIPT_DIR / ".." / "_data" / "publications" / bibcode
+    dir_path = SCRIPT_DIR / ".." / ".." / "_data" / "publications" / bibcode
     dir_path.mkdir(parents=True, exist_ok=True)
 
     return dir_path
@@ -116,7 +98,7 @@ def make_publications_data_dir(bibcode: str) -> str:
 
 def get_publications_dir() -> str:
     SCRIPT_DIR = Path(__file__).resolve().parent
-    publications_dir_path = SCRIPT_DIR / ".." / "_publications"
+    publications_dir_path = SCRIPT_DIR / ".." / ".." / "_publications"
 
     return publications_dir_path
 
@@ -138,7 +120,12 @@ def get_arxiv_html(link: str):
         return response.text
 
 
-def write_figures_json(figuresWithCaption: list[FigureWithCaption], save_path):
+def write_figures_file(
+    publication: PublicationWithAbstract,
+    figuresWithCaption: list[FigureWithCaption],
+    save_path,
+    write_yaml=False,
+):
     bad_links = []
     for f in figuresWithCaption:
         figure = f.figure
@@ -155,6 +142,7 @@ def write_figures_json(figuresWithCaption: list[FigureWithCaption], save_path):
         return bad_links
 
     data = {
+        "abstract": publication.abstract,
         "figures": list(
             map(
                 lambda f: {
@@ -165,11 +153,21 @@ def write_figures_json(figuresWithCaption: list[FigureWithCaption], save_path):
                 },
                 natsorted(figuresWithCaption, key=lambda f: f.figure.url),
             )
-        )
+        ),
     }
 
-    with open(save_path, "w", encoding="utf-8") as file:
-        json.dump(data, file, indent=4)
+    if write_yaml:
+        with open(save_path, "w", encoding="utf-8") as file:
+            yaml.dump(
+                data,
+                file,
+                default_flow_style=False,
+                allow_unicode=True,
+                sort_keys=False,
+            )
+    else:
+        with open(save_path, "w", encoding="utf-8") as file:
+            json.dump(data, file, indent=4)
 
 
 def write_figures_yml_from_arxiv(arxiv_figures: list[ArxivFigure], save_path):
@@ -204,12 +202,6 @@ def has_no_images(directory_path):
             return False  # Found an image, so it *does* have image files
 
     return True  # Iterated through all files and found no images
-
-
-@dataclass
-class FigureCaption:
-    figure_number: str
-    content: str
 
 
 def get_caption(url) -> str:
@@ -280,6 +272,31 @@ def caption_figures(figures: list[Figure]) -> list[FigureWithCaption]:
     return figures_with_caption
 
 
+def get_abstract(
+    publication: Publication, api_key: str
+) -> PublicationWithAbstract | None:
+    res = requests.get(
+        f"https://api.adsabs.harvard.edu/v1/search/query?q=bibcode%3A{publication.bibcode}&fl=abstract",
+        headers={"accept": "application/json", "authorization": f"Bearer {api_key}"},
+    )
+
+    if res.ok:
+        body = res.json()
+        if len(body["response"]["docs"]) == 0:
+            logger.warning(f"no docs for [get_abstract]={body}")
+            return None
+
+        if len(body["response"]["docs"]) > 1:
+            logger.warning(f"multiple docs for [get_abstract]={body}")
+
+        return PublicationWithAbstract(
+            publication=publication, abstract=body["response"]["docs"][0]["abstract"]
+        )
+    else:
+        logger.error(f"bad response for [get_abstract]={res.text}")
+        return None
+
+
 def main():
     if not find_dotenv():
         logger.error(".env file is missing :(")
@@ -301,13 +318,12 @@ def main():
         logger.debug(f"publication={publication}")
 
         publications_data_dir = make_publications_data_dir(bibcode)
-        figures_json_file_path = publications_data_dir / "figures.json"
         figures_yml_file_path = publications_data_dir / "figures.yml"
 
         if not publication.published():
             arxiv_html = publication.arxiv_html
             if not arxiv_html:
-                logger.debug(f"skipping because not published")
+                logger.debug(f"skipping; not published and no arxiv_html")
                 continue
 
             if not figures_yml_file_path.is_file():
@@ -330,18 +346,26 @@ def main():
 
                 logger.debug("downloading figures...done")
 
-            # Write figures.json
-
-            if not figures_json_file_path.is_file():
+            if not figures_yml_file_path.is_file():
                 if not figures:
                     figures = get_figures(bibcode, ADS_API_KEY)
 
-                logger.debug("writing figures.json metadata...")
+                logger.debug("writing figures.yml metadata...")
 
                 figures_with_caption = caption_figures(figures)
 
-                bad_links = write_figures_json(
-                    figures_with_caption, figures_json_file_path
+                publication_with_abstract = get_abstract(
+                    publication=publication, api_key=ADS_API_KEY
+                )
+
+                if publication_with_abstract is None:
+                    publication_with_abstract = PublicationWithAbstract(abstract="")
+
+                bad_links = write_figures_file(
+                    publication_with_abstract,
+                    figures_with_caption,
+                    figures_yml_file_path,
+                    True,
                 )
                 if bad_links:
                     logger.error(
@@ -349,7 +373,7 @@ def main():
                         bad_links=bad_links,
                     )
 
-                logger.debug("writing figures.json metadata...done")
+                logger.debug("writing figures.yml metadata...done")
 
 
 if __name__ == "__main__":

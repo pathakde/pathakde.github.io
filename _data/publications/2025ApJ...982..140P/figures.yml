@@ -1,0 +1,232 @@
+abstract: Radiation pressure is a key mechanism by which stellar feedback disrupts
+  molecular clouds and drives H II region expansion. This includes direct radiation
+  pressure exerted by UV photons on dust grains, pressure associated with photoionization,
+  and infrared (IR) radiation pressure on grains due to dust-reprocessed IR photons.
+  We present a new method that combines high-resolution mid-IR luminosities from JWST-MIRI,
+  optical attenuation, and nebular line measurements from the Very Large Telecope
+  Multi-Unit Spectroscopic Explorer (VLT-MUSE), and the Hubble Space Telescope (HST)
+  Hα-based region sizes to estimate the strength of radiation pressure in ≍18,000
+  H II regions across 19 nearby star-forming galaxies. This is the most extensive
+  and direct estimate of these terms beyond the Local Group to date. In the disks
+  of galaxies, we find that the total reprocessed IR pressure is on average 5% of
+  the direct UV radiation pressure. This fraction rises to 10% in galaxy centers.
+  We expect reprocessed IR radiation pressure to dominate over UV radiation pressure
+  in regions where <inline-formula> </inline-formula>. Radiation pressure due to H
+  ionizations is lower than pressure on dust in our sample, but appears likely to
+  dominate the radiation pressure budget in dwarf galaxies similar to the Small Magellanic
+  Cloud. The contribution from all radiation pressure terms appears to be subdominant
+  compared to thermal pressure from ionized gas, reinforcing the view that radiation
+  pressure is most important in compact, heavily embedded, and young regions.
+figures:
+- id: apjadb484f1
+  url: http://www.astroexplorer.org/details/apjadb484f1
+  image_path: https://s3.amazonaws.com/aasie/images/0004-637X/982/2/null/apjadb484f1_hr.jpg
+  caption: <strong>Figure 1.</strong> Radiation pressure in H <small>II</small> regions.
+    UV and optical photons emitted from the central powering source interact with
+    the surrounding dusty ISM. This results in ﹩{P}_{{\rm{Direct}}}^{{\rm{Rad}}}﹩
+    due to absorption and scattering off of dust grains and ﹩{P}_{{\rm{Ion}}}^{{\rm{Rad}}}﹩
+    due to H ionization. IR-reprocessed photons emitted by dust grains also interact
+    with the dusty ISM. This results in an additional ﹩{P}_{{\rm{Reprocessed}}}^{{\rm{Rad}}}﹩
+    due to absorption of these IR photons by dust. With the assumptions indicated,
+    H<em>α</em> emission is used to estimate ﹩{P}_{{\rm{Ion}}}^{{\rm{Rad}}}﹩. H<em>α</em>
+    and the Balmer decrement extinction are used to estimate ﹩{P}_{{\rm{Direct}}}^{{\rm{Rad}}}﹩.
+    Mid-IR dust emission and estimated mid-IR extinction are used to calculate ﹩{P}_{{\rm{Reprocessed}}}^{{\rm{Rad}}}﹩.
+    See details in Section 3.
+- id: apjadb484f2
+  url: http://www.astroexplorer.org/details/apjadb484f2
+  image_path: https://s3.amazonaws.com/aasie/images/0004-637X/982/2/null/apjadb484f2_hr.jpg
+  caption: <strong>Figure 2.</strong> The distribution of filter-integrated luminosities
+    <em>L</em><sub>FX</sub>&nbsp;=&nbsp;Δ<em>λ</em><sub>FX</sub><em>L</em><sub><em>λ</em>,FX</sub>
+    for our sample of H <small>II</small> regions. We separate the regions by environment
+    following M. Querejeta et al. (2021) and plot distributions for galactic centers
+    (yellow), spiral arms and bars (blue), and inter-arm regions (red) separately.
+    The panels show results for the four JWST-MIRI filters (FX) that we use—F770W,
+    F1000W, F1130W, and F2100W.
+- id: apjadb484f3
+  url: http://www.astroexplorer.org/details/apjadb484f3
+  image_path: https://s3.amazonaws.com/aasie/images/0004-637X/982/2/null/apjadb484f3_hr.jpg
+  caption: '<strong>Figure 3.</strong> <strong>Left panel:</strong> the distribution
+    of H<em>α</em> attenuation, <em>A</em><sub>H<em>α</em></sub>, from VLT-MUSE (Section
+    2.1) in our sample of H <small>II</small> regions, colored by local environment
+    as in Figure <a href="http://www.astroexplorer.org/details/apjadb484f2" rel="noopener
+    noreferrer">2</a>. The corresponding optical depth at 21 <em>μ</em>m,&nbsp;<em>τ</em><sub>21<em>μ</em>m</sub>,
+    converted from <em>A</em><sub>H<em>α</em></sub> using the G23 extinction law (Table
+    2), is included as an alternate <em>x</em>-axis. Right panel: corresponding ﹩{L}_{{\rm{H}}\alpha
+    }^{{\rm{corr}}}﹩-weighted histograms, capturing how the H<em>α</em> luminosity
+    is distributed across regions of different attenuation.'
+- id: apjadb484f4
+  url: http://www.astroexplorer.org/details/apjadb484f4
+  image_path: https://s3.amazonaws.com/aasie/images/0004-637X/982/2/null/apjadb484f4_hr.jpg
+  caption: <strong>Figure 4.</strong> Distribution of reprocessed radiation pressures
+    ﹩{P}_{{\rm{Reprocessed}},{\rm{FX}}}^{{\rm{Rad}}}﹩ for each individual MIRI filter
+    FX. We separate regions by local environment as in Figure <a href="http://www.astroexplorer.org/details/apjadb484f2"
+    rel="noopener noreferrer">2</a>. For the values of ﹩{P}_{{\rm{Reprocessed}}}^{{\rm{Rad}}}﹩
+    resulting from combining all filters and applying the SED-based correction described
+    in Appendix B, see Figure <a href="http://www.astroexplorer.org/details/apjadb484f5"
+    rel="noopener noreferrer">5</a>.
+- id: apjadb484f5
+  url: http://www.astroexplorer.org/details/apjadb484f5
+  image_path: https://s3.amazonaws.com/aasie/images/0004-637X/982/2/null/apjadb484f5_hr.jpg
+  caption: <strong>Figure 5.</strong> Distribution of total IR ﹩\mathrm{log}{P}_{\mathrm{Reprocessed}}^{\mathrm{Rad}}/{k}_{{\rm{B}}}﹩
+    (top) and UV-optical ﹩\mathrm{log}{P}_{\mathrm{Direct}}^{\mathrm{Rad}}/{k}_{{\rm{B}}}﹩
+    (bottom). Regions are again split by local environment—galactic centers (yellow),
+    spiral arms and bars (blue), and inter-arm regions (red). The left panel treats
+    each region equally, while the right panel weights regions by their ﹩{L}_{{\rm{H}}\alpha
+    }^{{\rm{corr}}}﹩, similar to the right panel in Figure <a href="http://www.astroexplorer.org/details/apjadb484f3"
+    rel="noopener noreferrer">3</a>.
+- id: apjadb484f6
+  url: http://www.astroexplorer.org/details/apjadb484f6
+  image_path: https://s3.amazonaws.com/aasie/images/0004-637X/982/2/null/apjadb484f6_hr.jpg
+  caption: <strong>Figure 6.</strong> The distribution of attenuation-corrected ﹩{L}_{{\rm{H}}\alpha
+    }^{{\rm{corr}}}﹩. The alternate <em>x</em>-axis shows the corresponding <em>L</em><sub>bol</sub>
+    estimated by assuming the average ﹩{L}_{{\rm{bol}}}/{L}_{{\rm{H}}\alpha }^{{\rm{corr}}}﹩
+    ratio as described in Section 2.3 The vertical dashed line indicates the luminosity
+    of a 1000 <em>M</em><sub>⊙</sub> SSP at the average age of our adopted model.
+- id: apjadb484f7
+  url: http://www.astroexplorer.org/details/apjadb484f7
+  image_path: https://s3.amazonaws.com/aasie/images/0004-637X/982/2/null/apjadb484f7_hr.jpg
+  caption: <strong>Figure 7.</strong> The distribution of ﹩{P}_{{\rm{Direct}}}^{{\rm{Rad}}}/{P}_{{\rm{Ion}}}^{{\rm{Rad}}}﹩
+    for our target regions split by local galactic environment. The light-blue line
+    shows the median value of 〈<em>τ</em><sub>UV</sub>〉 (right <em>y</em>-axis) for
+    the regions in each bin. The vertical dashed line indicates where ﹩{P}_{{\rm{Direct}}}^{{\rm{Rad}}}={P}_{{\rm{Ion}}}^{{\rm{Rad}}}﹩.
+    This corresponds to 〈<em>τ</em><sub>UV</sub>〉&nbsp;=&nbsp;0.27.
+- id: apjadb484f8
+  url: http://www.astroexplorer.org/details/apjadb484f8
+  image_path: https://s3.amazonaws.com/aasie/images/0004-637X/982/2/null/apjadb484f8_hr.jpg
+  caption: '<strong>Figure 8.</strong> Left panel: ﹩{P}_{{\rm{Reprocessed}}}^{{\rm{Rad}}}﹩
+    and ﹩{P}_{{\rm{Direct}}}^{{\rm{Rad}}}﹩ for our ∼18,000 H <small>II</small> regions
+    and literature measurements. Our individual regions are shown as gray points,
+    and density contours represent the 16th–25th–50th–75th–84th percentile distributions
+    colored by galactic environment—centers (yellow), spiral arms and bars (blue),
+    and inter-arm regions (red). Brown contours show the data density for pixel-scale
+    measurement in galactic centers (Section 2.3). Data from L. A. Lopez et al. (2014;
+    LMC/SMC, purple triangles), G. M. Olivier et al. (2021; UCHRs, cyan diamonds),
+    and A. T. Barnes et al. (2020; Milky Way CMZ, green triangles) is included for
+    comparison. The original data from L. A. Lopez et al. (2014) appear as faint triangles,
+    and bold triangles show their measurements after correcting for IR and UV optical
+    depths (see Section 4). Right panel: similar to the left panel, now showing the
+    variation in ﹩{f}_{{\rm{trap}}}={P}_{{\rm{Reprocessed}}}^{{\rm{Rad}}}/{P}_{{\rm{Direct}}}^{{\rm{Rad}}}﹩
+    as a function of region radius, <em>R</em><sub>circ</sub>. The gray shaded region
+    shows where the direct and reprocessed radiation pressure are within 1 dex of
+    each other, around the dashed gray 1:1 line.'
+- id: apjadb484f9
+  url: http://www.astroexplorer.org/details/apjadb484f9
+  image_path: https://s3.amazonaws.com/aasie/images/0004-637X/982/2/null/apjadb484f9_hr.jpg
+  caption: <strong>Figure 9.</strong> Here we compare ﹩{P}_{{\rm{Reprocessed}}}^{{\rm{Rad}}}﹩
+    (maroon), ﹩{P}_{{\rm{Direct}}}^{{\rm{Rad}}}﹩ (navy), ﹩{P}_{{\rm{Ion}}}^{{\rm{Rad}}}﹩
+    (green), and the Strömgren <em>P</em><sub>Therm</sub> (gray) for the full sample
+    of H <small>II</small> regions. The hatched regions show the 16th–84th percentiles,
+    and the solid lines show the median of each radiation pressure term. Variation
+    of the pressures with ﹩{L}_{{\rm{H}}\alpha }^{{\rm{corr}}}﹩ (left panel) and <em>R</em><sub>circ</sub>
+    (right panel) for each region is included for comparison.
+- id: apjadb484f10
+  url: http://www.astroexplorer.org/details/apjadb484f10
+  image_path: https://s3.amazonaws.com/aasie/images/0004-637X/982/2/null/apjadb484f10_hr.jpg
+  caption: <strong>Figure 10.</strong> Here we compare the median﹩{P}_{{\rm{Reprocessed}}}^{{\rm{Rad}}}﹩
+    (maroon hexagons), ﹩{P}_{{\rm{Direct}}}^{{\rm{Rad}}}﹩ (blue diamonds), and ﹩{P}_{{\rm{Ion}}}^{{\rm{Rad}}}﹩
+    (green squares; top row), and ﹩{f}_{{\rm{trap}}}={P}_{{\rm{Reprocessed}}}^{{\rm{Rad}}}/{P}_{{\rm{Direct}}}^{{\rm{Rad}}}﹩
+    (maroon hexagons) and ﹩{P}_{{\rm{Ion}}}^{{\rm{Rad}}}/{P}_{{\rm{Direct}}}^{{\rm{Rad}}}﹩
+    (green squares; bottom row) with the average star formation rate (SFR), total
+    stellar mass (<em>M</em><sub>*</sub>), and specific star formation rate (sSFR)
+    for all 19 galaxies. Each marker shows the median for each galaxy, and the error
+    bars denote the 16th–84th percentile range in values. The Spearman rank coefficient
+    <em>ρ</em> for the correlation between each median and galaxy property is noted
+    in the top left of each panel.
+- id: apjadb484f11
+  url: http://www.astroexplorer.org/details/apjadb484f11
+  image_path: https://s3.amazonaws.com/aasie/images/0004-637X/982/2/null/apjadb484f11_hr.jpg
+  caption: <strong>Figure 11.</strong> Variation in <em>f</em><sub>trap</sub> as a
+    function of ﹩{L}_{{\rm{F2100W}}}/{L}_{{\rm{H}}\alpha }^{{\rm{corr}}}﹩, which roughly
+    captures the shape of the SED (left panel) and attenuation <em>A</em><sub>H<em>α</em></sub>,
+    with corresponding ﹩\mathrm{log}\unicode{8210}\mathrm{log}﹩ bisector fits (solid
+    black line). Individual regions are shown as gray background points, and density
+    contours represent the 16th–25th–50th–75th–84th percentile distributions colored
+    by local environment—galaxy centers (yellow), spiral arms (blue), inter-arm regions
+    (red). Brown contours show the distribution of ﹩0\mathop{.}\limits^{^{\prime\prime}
+    }9﹩ pixel-scale MUSE estimates in galaxy centers. <em>f</em><sub>trap</sub> shows
+    a tight empirical correlation with ﹩{L}_{{\rm{F2100W}}}/{L}_{{\rm{H}}\alpha }^{{\rm{corr}}}﹩,
+    and shows much more scatter with attenuation. The gray shaded area shows the region
+    where the direct and reprocessed radiation pressure terms are within 1 dex of
+    each other, around the dashed gray line where <em>f</em><sub>trap</sub>&nbsp;=&nbsp;1.
+    The Spearman rank coefficient <em>ρ</em> for the full sample of regions is included.
+- id: apjadb484f12
+  url: http://www.astroexplorer.org/details/apjadb484f12
+  image_path: https://s3.amazonaws.com/aasie/images/0004-637X/982/2/null/apjadb484f12_hr.jpg
+  caption: <strong>Figure 12.</strong> Correlations between (left panel) H<em>α</em>
+    luminosity in erg s<sup>−1</sup>, as measured by MUSE and HST, (center panel)
+    HST size and HST H<em>α</em> luminosity from A. Barnes et al. (2025, in preparation),
+    and (right panel) the closure relation between MUSE luminosities and HST sizes.
+    All panels show the 7082 H <small>II</small> regions with joint HST and MUSE coverage.
+    Individual regions are colored by their local environment—galactic centers (yellow),
+    bars (green), spiral arms (blue), and inter-arm regions or the disk (red). The
+    solid white line traces the 50th percentile in <em>y</em> for each bin along the
+    <em>x</em>-axis, and the 16th–84th percentile scatter in each bin is indicated
+    with black hatches. Finally, the best-fit log–log correlation is shown in dark
+    blue, which follows the 50th percentile relation very closely. The gray dashed
+    line indicates the 1:1 line in the left panel, and the red dashed line in the
+    right panel shows the convolution of Equations (A1) and (A3).
+- id: apjadb484f13
+  url: http://www.astroexplorer.org/details/apjadb484f13
+  image_path: https://s3.amazonaws.com/aasie/images/0004-637X/982/2/null/apjadb484f13_hr.jpg
+  caption: <strong>Figure 13.</strong> Comparing two methods for re-scaling MIRI fluxes
+    from MUSE regions to HST for the &nbsp;∼7000 H <small>II</small> regions with
+    full HST, MUSE, and JWST-MIRI coverage, colored by local environment. The <em>x</em>-axis
+    scales MIRI fluxes directly by the same proportion that MUSE H<em>α</em> fluxes
+    are scaled relative to HST H<em>α</em> fluxes. The <em>y</em>-axis calculates
+    the total flux associated with a point source with peak intensity corresponding
+    to the brightest pixel in each region, with a local background subtraction in
+    each region, at ﹩0\mathop{.}\limits^{^{\prime\prime} }9﹩ resolution.
+- id: apjadb484f14
+  url: http://www.astroexplorer.org/details/apjadb484f14
+  image_path: https://s3.amazonaws.com/aasie/images/0004-637X/982/2/null/apjadb484f14_hr.jpg
+  caption: <strong>Figure 14.</strong> Standard HD23 dust models at different radiation
+    fields <em>U</em>. The G23 extinction curve (arbitrary normalization, for visualization
+    only), and the MIRI filter throughputs (arbitrary normalization) at F770W, F1000W,
+    F1130W, and F2100W are included. The left panel shows the variation in intensity
+    <em>λI</em><sub><em>λ</em></sub> with wavelength and <em>U</em>, showing how the
+    SED of dust emission changes with radiation field. The right panel shows how the
+    shape of the optical depth-weighted intensity, <em>λξ</em><sub><em>λ</em></sub>&nbsp;=&nbsp;<em>τ</em>(<em>λ</em>)<em>λI</em><sub><em>λ</em></sub>,
+    which is a proxy for pressure contribution, varies with <em>U</em>. Hexagonal
+    points represent the shape of the <em>measured</em> SED by showing the model SED
+    convolved with each of the four MIRI bandpasses, at <em>U</em>&nbsp;=&nbsp;1,&nbsp;10,&nbsp;10<sup>2</sup>,&nbsp;10<sup>3</sup>,&nbsp;10<sup>4</sup>,&nbsp;
+    and 10<sup>5</sup>.
+- id: apjadb484f15
+  url: http://www.astroexplorer.org/details/apjadb484f15
+  image_path: https://s3.amazonaws.com/aasie/images/0004-637X/982/2/null/apjadb484f15_hr.jpg
+  caption: '<strong>Figure 15.</strong> Top panel: the fraction of total IR intensity
+    (or flux) (TIR﹩={\int }_{1\,\mu {\rm{m}}}^{1000\,\mu {\rm{m}}}{I}_{\lambda }d\lambda
+    ﹩) captured by different approximations and linear combinations of MIRI filters
+    at a range of <em>U</em>. First, we present the fraction of TIR flux captured
+    by the <em>λI</em><sub><em>λ</em></sub> approximation in the 7.7 <em>μ</em>m filter
+    (blue dotted–dashed), 21 <em>μ</em>m filter (blue dashed), 7.7 <em>μ</em>m&nbsp;+&nbsp;21
+    <em>μ</em>m filters (blue dotted), and all four MIRI filters (solid blue). Next,
+    using the filter width Δ<em>λ</em> for each MIRI filter, we present the fraction
+    captured by Δ<em>λI</em><sub><em>λ</em></sub> in the 7.7 <em>μ</em>m filter (red
+    dotted–dashed), 21 <em>μ</em>m (red dashed), 7.7 <em>μ</em>m&nbsp;+&nbsp;21 <em>μ</em>m
+    filters (red dotted), and adding all four MIRI filters (solid red). Finally, we
+    present the fraction of flux captured in the mid-IR by an integral over the model
+    dust SED as ﹩{\int }_{1\mu {\rm{m}}}^{25\mu {\rm{m}}}{I}_{\lambda }d\lambda /{\int
+    }_{1\mu {\rm{m}}}^{1000\mu {\rm{m}}}{I}_{\lambda }d\lambda ﹩ (solid gray). Middle
+    panel: similar to the top panel, now for opacity-weighted intensity (proxy for
+    pressure) <em>ξ</em><sub><em>λ</em></sub> instead of intensity <em>I</em><sub><em>λ</em></sub>.
+    Bottom panel: inverting the fractions in the middle panel provides the mid-IR
+    to TIR correction factor ﹩{f}_{\xi }^{{\rm{TIR}}}﹩ at a given <em>U</em>. The
+    correction factor from integrating the model SED (solid gray), adding up all four
+    MIRI filters (solid red), and 7.7 <em>μ</em>m&nbsp;+&nbsp;21 <em>μ</em>m filters
+    (red dotted) is included for comparison. The MIRI-estimated ﹩{f}_{\xi }^{{\rm{TIR}}}﹩
+    using all four filters (solid red) is used for all ﹩{P}_{{\rm{Reprocessed}}}^{{\rm{Rad}}}﹩
+    calculations.'
+- id: apjadb484f16
+  url: http://www.astroexplorer.org/details/apjadb484f16
+  image_path: https://s3.amazonaws.com/aasie/images/0004-637X/982/2/null/apjadb484f16_hr.jpg
+  caption: '<strong>Figure 16.</strong> The impact of variation in <em>R</em><sub><em>V</em></sub>.
+    Left panel: variation of the K. D. Gordon et al. (2023) extinction curves as a
+    function of <em>R</em><sub><em>V</em></sub>. Additionally, the center panel shows
+    the scaling of ﹩{P}_{{\rm{Direct}}}^{{\rm{Rad}}}﹩ while the right panel shows
+    ﹩{P}_{{\rm{Reprocessed}}}^{{\rm{Rad}}}﹩ as a function of <em>R</em><sub><em>V</em></sub>
+    for values between 2.3 and 5.6, normalized to a our fiducial <em>R</em><sub><em>V</em></sub>
+    of 3.1. The variation in ﹩{P}_{{\rm{Direct}}}^{{\rm{Rad}}}﹩ relative to <em>R</em><sub><em>V</em></sub>&nbsp;=&nbsp;3.1
+    depends on the attenuation, and we show a range of <em>A</em><sub>H<em>α</em></sub>
+    between 0.4 and 4. The relative variation in ﹩{P}_{{\rm{Reprocessed}}}^{{\rm{Rad}}}﹩
+    depends to a smaller degree on the radiation field, shown for a range of log <em>U</em>
+    between 0 and 4.'
