@@ -1,3 +1,16 @@
+abstract: Using the IllustrisTNG cosmological galaxy formation simulations, we analyze
+  the physical properties of young quiescent galaxies at z = 2 with stellar masses
+  above 10<SUP>10.5</SUP> M<SUB>☉</SUB>. This key population provides an unaltered
+  probe into the evolution of galaxies from star-forming to quiescent, and has been
+  recently targeted by several observational studies. Young quiescent galaxies in
+  the simulations do not appear unusually compact, in tension with observations, but
+  they show unique age profiles that are qualitatively consistent with the observed
+  color gradients. In particular, more than half of the simulated young quiescent
+  galaxies show positive age gradients due to recent intense central starbursts, which
+  are triggered by significant mergers. Yet, there is a sizable population of recently
+  quenched galaxies without significant mergers and with flat age profiles. Our results
+  suggest that mergers play a fundamental role in structural transformation, but are
+  not the only available pathway to quench a z = 2 galaxy.
 figures:
 - id: apjlac13a7f1
   url: http://www.astroexplorer.org/details/apjlac13a7f1

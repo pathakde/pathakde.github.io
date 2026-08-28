@@ -51,7 +51,15 @@ layout: default
 
         {% assign clean_bibcode = page.bibcode | remove: "." %}
         {% assign gallery = site.data.publications[clean_bibcode].figures.figures %}
+        {% assign abstract = site.data.publications[clean_bibcode].figures.abstract %}
   
+        {% if abstract %}
+          <section id="abstract">
+            <h1>Abstract</h1>
+            <p>{{abstract}}</p>
+          </section>
+        {% endif %}
+
         {% if gallery %}
           <section id="figures">
             <h1>Figures</h1>

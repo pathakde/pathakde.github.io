@@ -1,3 +1,25 @@
+abstract: 'High-resolution JWST-MIRI images of nearby spiral galaxies reveal emission
+  with complex substructures that trace dust heated both by massive young stars and
+  the diffuse interstellar radiation field. We present high angular (0.″85) and physical
+  resolution (20-80 pc) measurements of the probability distribution function (PDF)
+  of mid-infrared (mid-IR) emission (7.7-21 μm) from 19 nearby star-forming galaxies
+  from the PHANGS-JWST Cycle 1 Treasury. The PDFs of mid-IR emission from the disks
+  of all 19 galaxies consistently show two distinct components: an approximately lognormal
+  distribution at lower intensities and a high-intensity power law component. These
+  two components only emerge once individual star-forming regions are resolved. Comparing
+  with locations of H II regions identified from Very Large Telescope/MUSE Hα mapping,
+  we infer that the power-law component arises from star-forming regions and thus
+  primarily traces dust heated by young stars. In the continuum-dominated 21 μm band,
+  the power law is more prominent and contains roughly half of the total flux. At
+  7.7-11.3 μm, the power law is suppressed by the destruction of small grains (including
+  PAHs) close to H II regions, while the lognormal component tracing the dust column
+  in diffuse regions appears more prominent. The width and shape of the lognormal
+  diffuse emission PDFs in galactic disks remain consistent across our sample, implying
+  a lognormal gas column density N(H) ≈ 10<SUP>21</SUP> cm<SUP>-2</SUP> shaped by
+  supersonic turbulence with typical (isothermal) turbulent Mach numbers ≈5-15. Finally,
+  we describe how the PDFs of galactic disks are assembled from dusty H II regions
+  and diffuse gas and discuss how the measured PDF parameters correlate with global
+  properties such as star formation rate and gas surface density.'
 figures:
 - id: ajad110df1
   url: http://www.astroexplorer.org/details/ajad110df1

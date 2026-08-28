@@ -1,3 +1,22 @@
+abstract: Radiation pressure is a key mechanism by which stellar feedback disrupts
+  molecular clouds and drives H II region expansion. This includes direct radiation
+  pressure exerted by UV photons on dust grains, pressure associated with photoionization,
+  and infrared (IR) radiation pressure on grains due to dust-reprocessed IR photons.
+  We present a new method that combines high-resolution mid-IR luminosities from JWST-MIRI,
+  optical attenuation, and nebular line measurements from the Very Large Telecope
+  Multi-Unit Spectroscopic Explorer (VLT-MUSE), and the Hubble Space Telescope (HST)
+  Hα-based region sizes to estimate the strength of radiation pressure in ≍18,000
+  H II regions across 19 nearby star-forming galaxies. This is the most extensive
+  and direct estimate of these terms beyond the Local Group to date. In the disks
+  of galaxies, we find that the total reprocessed IR pressure is on average 5% of
+  the direct UV radiation pressure. This fraction rises to 10% in galaxy centers.
+  We expect reprocessed IR radiation pressure to dominate over UV radiation pressure
+  in regions where <inline-formula> </inline-formula>. Radiation pressure due to H
+  ionizations is lower than pressure on dust in our sample, but appears likely to
+  dominate the radiation pressure budget in dwarf galaxies similar to the Small Magellanic
+  Cloud. The contribution from all radiation pressure terms appears to be subdominant
+  compared to thermal pressure from ionized gas, reinforcing the view that radiation
+  pressure is most important in compact, heavily embedded, and young regions.
 figures:
 - id: apjadb484f1
   url: http://www.astroexplorer.org/details/apjadb484f1

@@ -17,6 +17,7 @@ from pathakde_github_io.models import (
     Figure,
     FigureWithCaption,
     Publication,
+    PublicationWithAbstract,
 )
 from pathakde_github_io.parse_archive_html import parse_figure_html
 
@@ -120,7 +121,10 @@ def get_arxiv_html(link: str):
 
 
 def write_figures_file(
-    figuresWithCaption: list[FigureWithCaption], save_path, write_yaml=False
+    publication: PublicationWithAbstract,
+    figuresWithCaption: list[FigureWithCaption],
+    save_path,
+    write_yaml=False,
 ):
     bad_links = []
     for f in figuresWithCaption:
@@ -138,6 +142,7 @@ def write_figures_file(
         return bad_links
 
     data = {
+        "abstract": publication.abstract,
         "figures": list(
             map(
                 lambda f: {
@@ -148,7 +153,7 @@ def write_figures_file(
                 },
                 natsorted(figuresWithCaption, key=lambda f: f.figure.url),
             )
-        )
+        ),
     }
 
     if write_yaml:
@@ -267,6 +272,31 @@ def caption_figures(figures: list[Figure]) -> list[FigureWithCaption]:
     return figures_with_caption
 
 
+def get_abstract(
+    publication: Publication, api_key: str
+) -> PublicationWithAbstract | None:
+    res = requests.get(
+        f"https://api.adsabs.harvard.edu/v1/search/query?q=bibcode%3A{publication.bibcode}&fl=abstract",
+        headers={"accept": "application/json", "authorization": f"Bearer {api_key}"},
+    )
+
+    if res.ok:
+        body = res.json()
+        if len(body["response"]["docs"]) == 0:
+            logger.warning(f"no docs for [get_abstract]={body}")
+            return None
+
+        if len(body["response"]["docs"]) > 1:
+            logger.warning(f"multiple docs for [get_abstract]={body}")
+
+        return PublicationWithAbstract(
+            publication=publication, abstract=body["response"]["docs"][0]["abstract"]
+        )
+    else:
+        logger.error(f"bad response for [get_abstract]={res.text}")
+        return None
+
+
 def main():
     if not find_dotenv():
         logger.error(".env file is missing :(")
@@ -293,7 +323,7 @@ def main():
         if not publication.published():
             arxiv_html = publication.arxiv_html
             if not arxiv_html:
-                logger.debug(f"skipping because not published")
+                logger.debug(f"skipping; not published and no arxiv_html")
                 continue
 
             if not figures_yml_file_path.is_file():
@@ -324,8 +354,18 @@ def main():
 
                 figures_with_caption = caption_figures(figures)
 
+                publication_with_abstract = get_abstract(
+                    publication=publication, api_key=ADS_API_KEY
+                )
+
+                if publication_with_abstract is None:
+                    publication_with_abstract = PublicationWithAbstract(abstract="")
+
                 bad_links = write_figures_file(
-                    figures_with_caption, figures_yml_file_path, True
+                    publication_with_abstract,
+                    figures_with_caption,
+                    figures_yml_file_path,
+                    True,
                 )
                 if bad_links:
                     logger.error(

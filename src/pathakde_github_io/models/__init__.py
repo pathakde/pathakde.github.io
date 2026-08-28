@@ -33,6 +33,6 @@ class Publication:
 
 
 @dataclass
-class FigureCaption:
-    figure_number: str
-    content: str
+class PublicationWithAbstract:
+    publication: Publication
+    abstract: str

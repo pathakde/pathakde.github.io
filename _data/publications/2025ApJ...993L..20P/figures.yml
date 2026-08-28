@@ -1,3 +1,24 @@
+abstract: We present measurements of the masses associated with ∼18,000 H II regions
+  across 19 nearby star-forming galaxies by combining data from JWST, Hubble Space
+  Telescope, MUSE, Atacama Large Millimeter/submillimeter Array, Very Large Array,
+  and MeerKAT from the multiwavelength PHANGS survey. We report 10 pc-scale measurements
+  of the mass of young stars, ionized gas, and older disk stars coincident with each
+  H II region, as well as the initial and current mass of molecular gas, atomic gas,
+  and swept-up shell material, estimated from lower-resolution data. We find that
+  the mass of older stars dominates over young stars at ≳10 pc scales, and ionized
+  gas exceeds the stellar mass in most optically bright H II regions. Combining our
+  mass measurements for a statistically large sample of H II regions, we derive 10
+  pc-scale star formation efficiencies of ≍6%─17% for individual H II regions. Comparing
+  each region's self-gravity with the ambient interstellar medium (ISM) pressure and
+  total pressure from presupernova stellar feedback, we show that most optically bright
+  H II regions are overpressured relative to their own self-gravity and the ambient
+  ISM pressure and that they are hence likely expanding into their surroundings. Larger
+  H II regions in galaxy centers approach dynamical equilibrium. The self-gravity
+  of regions is expected to dominate over presupernova stellar feedback pressure at
+  ≳130 and 60 pc scales in galaxy disks and centers, respectively, but is always subdominant
+  to the ambient ISM pressure on H II region scales. Our measurements have direct
+  implications for the dynamical evolution of star-forming regions and the efficiency
+  of stellar feedback in ionizing and clearing cold gas.
 figures:
 - id: apjlae0e70f1
   url: http://www.astroexplorer.org/details/apjlae0e70f1

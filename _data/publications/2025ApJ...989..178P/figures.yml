@@ -1,3 +1,24 @@
+abstract: It is necessary to understand the full accretion history of the Milky Way
+  in order to contextualize the properties of observed Milky Way satellite galaxies
+  and the stellar halo. This paper compares the dynamical properties and star formation
+  histories of surviving and disrupted satellites around Milky Way─like galaxies using
+  the D.C. JUSTICE LEAGUE suite of very high-resolution cosmological zoom-in simulations
+  of Milky Way analogs and their halo environments. We analyze the full census of
+  galaxies accreted within the past 12 Gyr, including both surviving satellites at
+  z = 0, and dwarf galaxies that disrupted and merged with the host prior to z = 0.
+  Our simulations successfully reproduce the trends in M<SUB>*</SUB>−[Fe/H]−[α/Fe]
+  observed in surviving Milky Way satellites and disrupted stellar streams, indicating
+  earlier star formation for disrupted progenitors. We find the likelihood and timescales
+  for quenching and disruption are strongly correlated with the mass and time of infall.
+  In particular, none of the galaxies accreted more than 12 Gyr ago survived, and
+  only 20% of all accreted galaxies with M<SUB>*</SUB> &gt; 10<SUP>8</SUP> M<SUB>⊙</SUB>
+  survive. Additionally, satellites with highly radial trajectories are more likely
+  to quench and disrupt. Disruption proceeds quickly for ≥10<SUP>6</SUP> M<SUB>⊙</SUB>satellites
+  accreted 10─12 Gyr ago, often on timescales similar to the ∼300 Myr snapshot spacing.
+  For high-mass satellites, the disruption timescale is faster than the quenching
+  timescale. As a result, 92% of disrupted galaxies remain star forming up until disruption.
+  In contrast, ultrafaint dwarfs (UFDs) tend to quench prior to accretion, and 94%
+  of UFDs accreted up to 12 Gyr ago survive at z = 0.
 figures:
 - id: apjadec94f1
   url: http://www.astroexplorer.org/details/apjadec94f1
