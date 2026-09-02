@@ -1,0 +1,299 @@
+abstract: 'We present 50─100 pc-resolution JWST/MIRI and NIRCam measurements of mid-infrared
+  (mid-IR) color variations in the diffuse interstellar medium (ISM) of 71 nearby
+  star-forming galaxies from the PHANGS-JWST survey. Mid-IR emission traces the dust
+  column density, intensity (U) and hardness of the interstellar radiation field,
+  and the physical state (charge, size) and abundance of polycyclic aromatic hydrocarbons
+  (PAHs). Mid-IR colors that trace PAH band ratios remain fairly constant in the diffuse
+  ISM of star-forming disks. However, they show stark variations in extreme environments:
+  highly star-forming central molecular zones (CMZs) and star formation deserts/quiescent
+  bulges. In CMZs, PAH-to-continuum (3.3/21, 7.7/21, and 11.3/21 μm) and the 10/21
+  μm continuum colors are 0.2─0.4 dex lower than in normal disks. We attribute this
+  to higher U based on the far-infrared dust colors and the high 21 μm/Σ<SUB>Mol</SUB>,
+  which we suggest to be a good tracer of U outside star-forming regions. Meanwhile,
+  star formation deserts show low 7.7 μm PAH emission, resulting in low 7.7/21 μm
+  and 7.7/11.3 μm, while all other mid-IR colors remain typical. This suggests the
+  presence of more neutral PAHs in star formation deserts, where low 7.7 μm likely
+  reflects ISM conditions similar to early-type and elliptical galaxies. All environments
+  form part of a continuous trend in 7.7/11.3 μm versus specific star formation rate.'
+figures:
+- id: S2.F1
+  figure_content: '<a href="https://arxiv.org/html/2607.19512v1#S2.F1" rel="noopener
+    noreferrer"><div>
+
+    <div><img alt="Refer to caption" height="148" src="https://arxiv.org/html/2607.19512v1/condense_GALAXY_panels_NGC0628.png"
+    width="476"/></div><div></div><div><img alt="Refer to caption" height="79" src="https://arxiv.org/html/2607.19512v1/condense_GALAXY_panels_NGC1512.png"
+    width="476"/></div><div></div><div><img alt="Refer to caption" height="110" src="https://arxiv.org/html/2607.19512v1/condense_GALAXY_panels_NGC2775.png"
+    width="476"/></div><div></div><div><img alt="Refer to caption" height="92" src="https://arxiv.org/html/2607.19512v1/condense_GALAXY_panels_NGC3239.png"
+    width="476"/></div><div></div><div><img alt="Refer to caption" height="70" src="https://arxiv.org/html/2607.19512v1/condense_GALAXY_panels_NGC4321.png"
+    width="476"/></div><div></div><div><img alt="Refer to caption" height="79" src="https://arxiv.org/html/2607.19512v1/condense_GALAXY_panels_NGC4781.png"
+    width="476"/></div></div></a>'
+  caption: '<span>Figure 1: </span>Zoom-ins showing a few example galaxies from our
+    sample in F300M, F770W<sub>ss</sub>, F2100W<sub>ss</sub>, and \( R_{\rm PAH}^{*}
+    \), with <cite><a href="https://arxiv.org/html/2607.19512v1#bib.bib18" rel="noopener
+    noreferrer" title="">Querejeta et al. [71]</a></cite> morphological environment
+    masks for centers (blue) and bars (red)
+
+    overlaid for reference.'
+- id: S2.F2
+  figure_content: <a href="https://arxiv.org/html/2607.19512v1#S2.F2" rel="noopener
+    noreferrer"><img alt="Refer to caption" height="207" src="https://arxiv.org/html/2607.19512v1/sSFR_SigmaSFR_vs_F2100W_F300M.png"
+    width="476"/></a>
+  caption: '<span>Figure 2: </span>Correlating environment-integrated median \( \Sigma_{\rm
+    SFR} \) (\( M_{\odot}\,\rm yr^{-1}\,kpc^{-1} \); ) and sSFR (\( \rm yr^{-1} \);
+    ) measurements from MUSE with JWST F2100W intensities and F2100W/F300M, respectively,
+    for the 42 galaxies with joint MUSE and JWST coverage. Environments (§<a href="https://arxiv.org/html/2607.19512v1#S2.SS3"
+    rel="noopener noreferrer" title="II.3 Environmental Classification ‣ II Data and
+    Methods ‣ Mid-Infrared Colors Vary with Galactic Environment: Contrasting Star-Forming
+    Disks, Young Centers, and Quiescent Star-Formation Deserts"><span>II.3</span></a>)
+    are indicated with colors — old bulges (red), young star-forming centers (blue),
+    normal centers (light blue), and normal disks (light yellow) for targets with
+    full MIRI filter coverage (20/71; X’s) and partial filter coverage (51/71; circles).
+    We include \( \log{-}\log \) fits to all environments (light grey); the corresponding
+    correlation coefficient \( \rho \) and p-value; and the threshold in F2100W and
+    F2100W/F300M used to classify young centers (dark blue) and old bulges (red) as
+    in §<a href="https://arxiv.org/html/2607.19512v1#S2.SS3" rel="noopener noreferrer"
+    title="II.3 Environmental Classification ‣ II Data and Methods ‣ Mid-Infrared
+    Colors Vary with Galactic Environment: Contrasting Star-Forming Disks, Young Centers,
+    and Quiescent Star-Formation Deserts"><span>II.3</span></a> are indicated as horizontal
+    dashed lines.
+
+    '
+- id: S2.F3
+  figure_content: <a href="https://arxiv.org/html/2607.19512v1#S2.F3" rel="noopener
+    noreferrer"><img alt="Refer to caption" height="142" src="https://arxiv.org/html/2607.19512v1/radial_profile_QAfigure.png"
+    width="476"/></a>
+  caption: '<span>Figure 3: </span> <span>Left</span>: Constructing radial profiles
+    of \( \rm F770W_{ss}/F2100W_{ss} \) for NGC1300 . The solid red line shows our
+    fiducial measurement constructed from the ratio of medians taken across the full
+    data set. The other lines show the impact of varying the methodology. Green shows
+    the profile without starlight subtraction for all pixels (solid green), for only
+    diffuse emission (dot-dashed green; see §<a href="https://arxiv.org/html/2607.19512v1#S2.SS5.SSS2"
+    rel="noopener noreferrer" title="II.5.2 Measuring Mid-IR Colors of Diffuse Emission
+    ‣ II.5 Core Measurements ‣ II Data and Methods ‣ Mid-Infrared Colors Vary with
+    Galactic Environment: Contrasting Star-Forming Disks, Young Centers, and Quiescent
+    Star-Formation Deserts"><span>II.5.2</span></a>), and constructed taking the median
+    of pixel-wise ratios instead of the ratio of medians (dashed green). Other red
+    lines show varying methodologies with star-subtraction applied: considering diffuse
+    emission only (dot-dashed red), all pixels (solid red), or the median of pixel
+    ratios (dashed red). Blue shows the ratio of median values for only nebular regions.
+    The black dot-dashed line shows the typical value for the diffuse emission from
+    <cite><a href="https://arxiv.org/html/2607.19512v1#bib.bib11" rel="noopener noreferrer"
+    title="">Sutter et al. [84]</a></cite>.
+
+    <span>Middle</span>: Testing agreement between ratio of medians vs median of ratios
+    for all radial bins, including both diffuse and nebular pixels, across 71 galaxies
+    with \( R_{\rm gal}\leq 3\ell_{*} \).
+
+    <span>Right</span>: Testing agreement between ratio of medians when including
+    all pixels vs including diffuse pixels only (masking nebular pixels before binning)
+    for all radial bins at \( R_{\rm gal}\leq 3\ell_{*} \).
+
+    '
+- id: S2.F4
+  figure_content: <a href="https://arxiv.org/html/2607.19512v1#S2.F4" rel="noopener
+    noreferrer"><img alt="Refer to caption" height="142" src="https://arxiv.org/html/2607.19512v1/miniCENTER_panels_NGC7496.png"
+    width="229"/></a>
+  caption: '<span>Figure 4: </span>
+
+    The center of NGC7496, an example of galaxy centers removed from analysis due
+    to contamination by prominent diffraction spikes in F2100W. We show maps of contaminated
+    F2100W and resulting \( R_{\rm PAH}^{*} \), blue contours for the center mask
+    from <cite><a href="https://arxiv.org/html/2607.19512v1#bib.bib18" rel="noopener
+    noreferrer" title="">Querejeta et al. [71]</a></cite>, and black contours for
+    median \( R_{\rm PAH}^{*} \) in the center.
+
+    '
+- id: S2.F5
+  figure_content: <a href="https://arxiv.org/html/2607.19512v1#S2.F5" rel="noopener
+    noreferrer"><img alt="Refer to caption" height="109" src="https://arxiv.org/html/2607.19512v1/condense_CENTER_panels_NGC1512.png"
+    width="476"/></a>
+  caption: '<span>Figure 5: </span>
+
+    From left to right, F300M, F770W<sub>ss</sub>, F2100W<sub>ss</sub>, \( R_{\rm
+    PAH}^{*} \), and resulting masks for diffuse (blue) vs nebular emission (pink)
+    in the center of NGC1512, with dark blue contours for the morphological environment
+    mask for the center of NGC1512 from <cite><a href="https://arxiv.org/html/2607.19512v1#bib.bib18"
+    rel="noopener noreferrer" title="">Querejeta et al. [71]</a></cite>.
+
+    '
+- id: S2.F6
+  figure_content: <a href="https://arxiv.org/html/2607.19512v1#S2.F6" rel="noopener
+    noreferrer"><img alt="Refer to caption" height="154" src="https://arxiv.org/html/2607.19512v1/radial_profile_STARSUB_filters_Mstar.png"
+    width="476"/></a>
+  caption: '<span>Figure 6: </span><span>Top</span>: Radial profiles of F300M, F770W<sub>ss</sub>,
+    F2100W<sub>ss</sub> intensity for all 71 galaxies; F1000W<sub>ss</sub> and F1130W<sub>ss</sub>
+    for 20 galaxies, colored by galaxy stellar mass \( M_{*} \).
+
+    <span>Bottom</span>: Median (solid lines) and \( 16^{\rm th}{-}84^{\rm th} \)
+    percentile range (shaded region) of radial profiles of F300M, F770W<sub>ss</sub>,
+    F2100W<sub>ss</sub>, F1000W<sub>ss</sub> and F1130W<sub>ss</sub> in six percentile
+    bins of \( M_{*} \).
+
+    All radial profiles shown as a function of (projected) galactocentric radius in
+    units of galaxy exponential scale-length \( \ell_{*} \).'
+- id: S3.F7
+  figure_content: <a href="https://arxiv.org/html/2607.19512v1#S3.F7" rel="noopener
+    noreferrer"><img alt="Refer to caption" height="249" src="https://arxiv.org/html/2607.19512v1/radial_profile_ratios_Mstar.png"
+    width="476"/></a>
+  caption: '<span>Figure 7: </span>Radial profiles of \( \log R_{\rm PAH}^{*} \) for
+    individual galaxies colored by total \( M_{*} \) (left), and then median profiles
+    for groups of galaxies sorted into percentile bins of \( M_{*} \) (right). All
+    galactocentric distances for the radial profiles are shown in units of the exponential
+    scale length \( \ell_{*} \). For each binned profile, the median profile within
+    a bin (solid line) and \( 16^{\rm th}{-}84^{\rm th} \) percentile range (shaded
+    area) are included. Diffuse ISM median for 19/71 of our targets from <cite><a
+    href="https://arxiv.org/html/2607.19512v1#bib.bib11" rel="noopener noreferrer"
+    title="">Sutter et al. [84]</a></cite> shown as horizontal black dot-dashed lines.
+
+    '
+- id: S3.F8
+  figure_content: <a href="https://arxiv.org/html/2607.19512v1#S3.F8" rel="noopener
+    noreferrer"><img alt="Refer to caption" height="177" src="https://arxiv.org/html/2607.19512v1/sSFR_vs_radial_profile_plateau.png"
+    width="229"/></a>
+  caption: '<span>Figure 8: </span>Plateau value in radial profiles of \( \log R_{\rm
+    PAH}^{*} \) for each galaxy, measured as the median of all \( 0.1\ell_{*} \) annular
+    bins with \( \ell_{*}\leq R_{\rm gal}\leq 3\ell_{*} \), points colored by galaxy
+    stellar mass, as a function of global sSFR. Median of 71 galaxies (orange solid
+    line), \( 1\sigma \) scatter (orange hatched area), diffuse ISM median from <cite><a
+    href="https://arxiv.org/html/2607.19512v1#bib.bib11" rel="noopener noreferrer"
+    title="">Sutter et al. [84, horizontal black dot-dashed line]</a></cite>, and
+    Spearman rank correlation coefficient (printed) shown. See Table <a href="https://arxiv.org/html/2607.19512v1#S3.T1"
+    rel="noopener noreferrer" title="Table 1 ‣ III.2 Roughly constant 𝑅_PAH^∗ in Normal
+    Star-Forming Disks ‣ III Mid-IR Colors in Galaxies ‣ Mid-Infrared Colors Vary
+    with Galactic Environment: Contrasting Star-Forming Disks, Young Centers, and
+    Quiescent Star-Formation Deserts"><span>1</span></a>.
+
+    '
+- id: S3.F9
+  figure_content: '<a href="https://arxiv.org/html/2607.19512v1#S3.F9" rel="noopener
+    noreferrer"><div>
+
+    <div><img alt="Refer to caption" height="133" src="https://arxiv.org/html/2607.19512v1/err_MUSE_logSFR_vs_JWST_colors_in_center_pix_ALL.png"
+    width="476"/></div><div></div><div><img alt="Refer to caption" height="133" src="https://arxiv.org/html/2607.19512v1/err_MUSE_logsSFR_vs_JWST_colors_in_center_pix_ALL.png"
+    width="476"/></div><div></div><div><img alt="Refer to caption" height="133" src="https://arxiv.org/html/2607.19512v1/err_JWST_colors_in_center_pix_ALL.png"
+    width="476"/></div></div></a>'
+  caption: '<span>Figure 9: </span>\( \log R_{\rm PAH}^{*} \), \( \log\rm F770W_{ss}/F1130W_{ss}
+    \), and \( \log\rm F1000W_{ss}/F2100W_{\rm ss} \) as a function of \( \log\rm\Sigma_{SFR}~(M_{\odot}\,yr^{-1}\,kpc^{-2};~top)
+    \) and \( \log\rm sSFR=\log\Sigma_{SFR}/\Sigma_{*}~(yr^{-1};~middle) \) from MUSE,
+    and \( \log\rm F2100W/F300M \) (bottom row), split by local environment—old stellar
+    bulges (red), young CMZs (bright blue), normal centers (pale blue), and disks
+    (yellow). The markers indicate medians within each environment, with corresponding
+    Spearman rank correlation coefficients (\( \rho \)) printed. We indicate the 20
+    galaxies with coverage in all four MIRI filters as X’s, and the rest with only
+    two MIRI filters as circles.
+
+    For galaxy centers, we include medians within the full environment (X’s or circles)
+    and selecting for only diffuse emission (blue triangles), and mark centers with
+    known AGN <cite>[<a href="https://arxiv.org/html/2607.19512v1#bib.bib68" rel="noopener
+    noreferrer" title="">89</a>, open squares;]</cite>. The median diffuse \( R_{\rm
+    PAH}^{*} \) from <cite><a href="https://arxiv.org/html/2607.19512v1#bib.bib11"
+    rel="noopener noreferrer" title="">Sutter et al. [84]</a></cite> is included for
+    comparison (black dot-dashed line).
+
+    '
+- id: S3.F10
+  figure_content: <a href="https://arxiv.org/html/2607.19512v1#S3.F10" rel="noopener
+    noreferrer"></a>
+  caption: '<span>Figure 10: </span>Mid-IR color-color variation by environment for
+    20/71 galaxies with full MIRI filter coverage.
+
+    \( \rm F770W_{ss}/F2100W_{ss} \) (or \( R_{\rm PAH}^{*} \)) and \( \rm F770W_{ss}/F1130W_{ss}
+    \) ratios vs \( \rm F1000W_{ss}/F2100W_{ss} \) for bulges (red), CMZs (dark blue),
+    ‘normal’ centers (pale blue), and disks (yellow) shown.
+
+    '
+- id: S4.F11
+  figure_content: <a href="https://arxiv.org/html/2607.19512v1#S4.F11" rel="noopener
+    noreferrer"></a>
+  caption: '<span>Figure 11: </span>— modified MMP (black), M31 bulge (red), and a
+    3 Myr-old starburst (blue); and a 3 Myr-old starburst at \( \log U=3 \). Arrows
+    show the direction in which grids shift due to increasing PAH ionization, size,
+    and \( \log U \). Modulo a 0.1 dex offset in F1000W between model grids and observations,
+    changes in mid-IR colors for CMZs relative disks are consistent with increasing
+    \( U \), while star-formation deserts or bulges lie off the standard grids.  '
+- id: S4.F12
+  figure_content: '<a href="https://arxiv.org/html/2607.19512v1#S4.F12" rel="noopener
+    noreferrer"><div>
+
+    <div><img alt="Refer to caption" height="133" src="https://arxiv.org/html/2607.19512v1/PACS_colors_vs_F2100W_ICO21.png"
+    width="476"/></div><div></div><div><img alt="Refer to caption" height="133" src="https://arxiv.org/html/2607.19512v1/PACS_colors_vs_F2100W_SigmaMol.png"
+    width="476"/></div><div></div><div><img alt="Refer to caption" height="133" src="https://arxiv.org/html/2607.19512v1/PACS_colors_vs_SigmaSFR.png"
+    width="476"/></div></div></a>'
+  caption: '<span>Figure 12: </span>Correlating far-IR dust temperature tracers with
+    expected tracers of radiation field intensity: <span>Herschel</span> PACS far-IR
+    ratios of specific intensities (\( I_{\nu} \)) for \( \sim 31 \) galaxies where
+    PACS \( 70\,\mu \)m, \( 100\,\mu \)m, or \( 160\,\mu \)m data are available, with
+    F2100W\( {}_{\rm ss}/I_{\rm CO(2{-}1)} \) (top row), F2100W\( {}_{\rm ss}/\Sigma_{\rm
+    Mol} \) (middle row), and \( \Sigma_{\rm SFR} \) (bottom row), data points colored
+    as in previous figures. \( \log-\log \) fits and corresponding Spearman rank correlation
+    coefficients are included for comparison.
+
+    '
+- id: S4.F13
+  figure_content: '<a href="https://arxiv.org/html/2607.19512v1#S4.F13" rel="noopener
+    noreferrer"><div>
+
+    <div><img alt="Refer to caption" height="133" src="https://arxiv.org/html/2607.19512v1/err_JWST_colors_vs_F2100Wss_SigmaMol.png"
+    width="476"/></div><div></div><div><img alt="Refer to caption" height="133" src="https://arxiv.org/html/2607.19512v1/logU_vs_band_ratios.png"
+    width="476"/></div></div></a>'
+  caption: '<span>Figure 13: </span><span>Top:</span> \( R_{\rm PAH}^{*} \), \( \rm
+    F770W_{ss}/F1130W_{ss} \), and \( \rm F1000W_{ss}/F2100W_{ss} \) as a function
+    of F2100W\( {}_{\rm ss}/\Sigma_{\rm Mol} \), which correlates with \( T_{\rm dust}
+    \) (and \( U \)). Points colored as in previous figures.
+
+    <span>Bottom:</span> Predicted variation in \( R_{\rm PAH}^{*} \), \( \rm F770W_{ss}/F1130W_{ss}
+    \), and \( \rm F1000W_{ss}/F2100W_{ss} \) with radiation intensity \( \log U \)
+    for three different radiation hardness models from <cite><a href="https://arxiv.org/html/2607.19512v1#bib.bib28"
+    rel="noopener noreferrer" title="">Draine et al. [30]</a></cite>—a 3 Myr-old starburst
+    (blue), modified MMP or Milky Way average (yellow), and the stellar bulge of M31
+    (red).
+
+    At each \( \log U \), we show the standard value (standard ionization and size;
+    solid lines), maximum variation possible due to PAH ionization at standard grain
+    size (hatches), maximum variation possible due to grain sizes at standard ionization
+    (darker shading), and finally the maximum range of values possible at fixed \(
+    U \) from changing both size and ionization in the models (light shading).
+
+    '
+- id: S4.F14
+  figure_content: <a href="https://arxiv.org/html/2607.19512v1#S4.F14" rel="noopener
+    noreferrer"><img alt="Refer to caption" height="133" src="https://arxiv.org/html/2607.19512v1/MUSE_logsSFR_vs_PAH_fracs.png"
+    width="476"/></a>
+  caption: '<span>Figure 14: </span>PAH-to-continuum ratios for three PAH-dominated
+    filters for the 19 galaxies from Cycle-1, points colored by environment as in
+    previous figures: \( \rm F335M_{PAH} \) (from H. Koziol et al. submitted), \(
+    \rm F770W_{ss} \), and \( \rm F1130W_{ss} \) relative to \( \rm F2100W_{ss} \).
+    Dashed lines indicate the predicted variation in respective PAH-to-continuum ratios
+    due to radiation hardness at fixed \( \log U=1 \) and standard grain size and
+    ionization from <cite><a href="https://arxiv.org/html/2607.19512v1#bib.bib28"
+    rel="noopener noreferrer" title="">Draine et al. [30]</a></cite>.
+
+    '
+- id: S4.F15
+  figure_content: <a href="https://arxiv.org/html/2607.19512v1#S4.F15" rel="noopener
+    noreferrer"></a>
+  caption: '<span>Figure 15: </span>Mid-IR and near-IR PAH color-color variation by
+    environment.
+
+    \( \rm F770W_{ss}/F1130W_{ss} \) and \( \rm F335M_{PAH}/F770W_{ss} \) (small,
+    neutral PAH-to-small, ionized PAH) ratios vs \( \rm F335M_{PAH}/F1130W_{ss} \)
+    (small, neutral PAH-to-larger, neutral PAH) ratios. No significant variation in
+    dust grids is seen due to varying \( \log U \). '
+- id: S4.F16
+  figure_content: <a href="https://arxiv.org/html/2607.19512v1#S4.F16" rel="noopener
+    noreferrer"><img alt="Refer to caption" height="171" src="https://arxiv.org/html/2607.19512v1/MUSE_logsSFR_vs_Av.png"
+    width="229"/></a>
+  caption: '<span>Figure 16: </span>MUSE sSFR vs median (markers) and \( 16^{\rm th}{-}84^{\rm
+    th} \) percentile scatter (error bars) in Balmer decrement attenuation \( A_{\rm
+    V} \) for bulges, centers, and disks in 42 galaxies. Medians and percentiles only
+    measured where both \( \rm H\alpha \) and \( \rm H\beta \) are detected within
+    each environment. While most low-to-moderate sSFR environments show low \( A_{\rm
+    V}\approx 0.5 \), CMZs show higher \( A_{\rm V} \).
+
+    The alternate \( y \)-axis shows the translation to \( \tau_{\rm 10\,\mu m} \),
+    the optical depth at \( \rm 10\,\mu m \) due to silicate absorption <cite>[<a
+    href="https://arxiv.org/html/2607.19512v1#bib.bib82" rel="noopener noreferrer"
+    title="">40</a>, using]</cite>, which in PHANGS CMZs results in \( &lt;1\% \)
+    attenuation.
+
+    '
