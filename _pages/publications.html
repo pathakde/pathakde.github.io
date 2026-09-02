@@ -24,7 +24,8 @@ disable_footer: true
         <h2>{{ category[1].title }}</h2><hr />
         {% assign title_shown = true %}
       {% endunless %}
-      {% include archive-single.html %}
+      {% assign number = forloop.rindex %}
+      {% include archive-single.html number=number %}
     {% endfor %}
   {% endfor %}
 {% else %}
