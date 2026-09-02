@@ -1,3 +1,20 @@
+abstract: 'We present 50─100 pc-resolution JWST/MIRI and NIRCam measurements of mid-infrared
+  (mid-IR) color variations in the diffuse interstellar medium (ISM) of 71 nearby
+  star-forming galaxies from the PHANGS-JWST survey. Mid-IR emission traces the dust
+  column density, intensity (U) and hardness of the interstellar radiation field,
+  and the physical state (charge, size) and abundance of polycyclic aromatic hydrocarbons
+  (PAHs). Mid-IR colors that trace PAH band ratios remain fairly constant in the diffuse
+  ISM of star-forming disks. However, they show stark variations in extreme environments:
+  highly star-forming central molecular zones (CMZs) and star formation deserts/quiescent
+  bulges. In CMZs, PAH-to-continuum (3.3/21, 7.7/21, and 11.3/21 μm) and the 10/21
+  μm continuum colors are 0.2─0.4 dex lower than in normal disks. We attribute this
+  to higher U based on the far-infrared dust colors and the high 21 μm/Σ<SUB>Mol</SUB>,
+  which we suggest to be a good tracer of U outside star-forming regions. Meanwhile,
+  star formation deserts show low 7.7 μm PAH emission, resulting in low 7.7/21 μm
+  and 7.7/11.3 μm, while all other mid-IR colors remain typical. This suggests the
+  presence of more neutral PAHs in star formation deserts, where low 7.7 μm likely
+  reflects ISM conditions similar to early-type and elliptical galaxies. All environments
+  form part of a continuous trend in 7.7/11.3 μm versus specific star formation rate.'
 figures:
 - id: S2.F1
   figure_content: '<a href="https://arxiv.org/html/2607.19512v1#S2.F1" rel="noopener

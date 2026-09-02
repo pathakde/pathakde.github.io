@@ -170,8 +170,10 @@ def write_figures_file(
             json.dump(data, file, indent=4)
 
 
-def write_figures_yml_from_arxiv(arxiv_figures: list[ArxivFigure], save_path):
+def write_figures_yml_from_arxiv(
+    publication: PublicationWithAbstract, arxiv_figures: list[ArxivFigure], save_path):
     data = {
+        "abstract": publication.abstract,
         "figures": list(
             map(
                 lambda f: {
@@ -347,6 +349,25 @@ def main():
                 logger.debug("downloading figures...done")
 
             if not figures_yml_file_path.is_file():
+                arxiv_html = publication.arxiv_html
+                if arxiv_html:
+                    logger.debug(f"getting figures from arxiv html instead...")
+
+                    arxiv_html_content = get_arxiv_html(arxiv_html)
+                    arxiv_id = publication.arxiv_html.split("/")[-1]
+                    arxiv_figures = parse_figure_html(arxiv_html_content, arxiv_id)
+
+
+                    publication_with_abstract = get_abstract(
+                        publication=publication, api_key=ADS_API_KEY
+                    )
+
+                    if publication_with_abstract is None:
+                        publication_with_abstract = PublicationWithAbstract(abstract="")
+
+                    write_figures_yml_from_arxiv(publication_with_abstract, arxiv_figures, figures_yml_file_path)
+                    continue
+                
                 if not figures:
                     figures = get_figures(bibcode, ADS_API_KEY)
 
