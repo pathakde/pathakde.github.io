@@ -88,10 +88,7 @@
       {% if figures.abstract %}
         <p>{{figures.abstract}}</p>
       {% endif %}
-      {% assign missing_image_path = figures.figures | where_exp: "item", "item.image_path == nil" %}
-      {% if missing_image_path.size <= 0 %}
-        {% include figure_carousel.html figures=figures.figures number=clean_bibcode height=100 unit="%" %}
-      {% endif %}
+      {% include figure_carousel.html figures=figures.figures number=clean_bibcode height=100 unit="%" %}
     {% elsif post.paperurl %}
       <p><a href="{{ post.paperurl }}">Download Paper</a></p>
     {% elsif post.slidesurl and post.bibtexurl %}
