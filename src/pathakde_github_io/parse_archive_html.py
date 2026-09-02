@@ -47,12 +47,12 @@ def parse_figure_html(html_content: str, arxiv_id: str) -> list[ArxivFigure]:
                 if "://" not in src and not src.startswith("/"):
                     img["src"] = "/html/" + src
 
-        # prepend object srcs with /html/ so that they properly point out to arxiv
+        # prepend object data with /html/ so that they properly point out to arxiv
         for obj in figure.find_all("object"):
-            src = obj.get("src")
-            if src:
-                if "://" not in src and not src.startswith("/"):
-                    obj["src"] = "/html/" + src
+            data = obj.get("data")
+            if data:
+                if "://" not in data and not data.startswith("/"):
+                    obj["data"] = "/html/" + data
 
         # replace all math tags with a simpler span
         for math in figure.find_all("math"):
