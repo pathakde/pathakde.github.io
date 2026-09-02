@@ -53,6 +53,14 @@ def parse_figure_html(html_content: str, arxiv_id: str) -> list[ArxivFigure]:
             if data:
                 if "://" not in data and not data.startswith("/"):
                     obj["data"] = "/html/" + data
+            
+            style = obj.get("style")
+            disable_pointer_events = "pointer-events: none;"
+            if style:
+                style += disable_pointer_events
+            else:
+                style = disable_pointer_events
+            obj["style"] = style
 
         # replace all math tags with a simpler span
         for math in figure.find_all("math"):
