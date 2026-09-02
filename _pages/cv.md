@@ -15,7 +15,7 @@ disable_footer: true
   <object class="pdf" data="{{ site.baseurl }}/assets/pdfs/PhD_CV.pdf#navpanes=0" type='application/pdf'>
     <p>Browser does not support inline PDFs. 
       <a href="{{ site.baseurl }}/assets/pdfs/PhD_CV.pdf" target="_blank" rel="noopener noreferrer">
-        <strong>Click here to view/download the PDF</strong>
+        <strong>Click here to download my CV!</strong>
       </a>.
     </p>
   </object>
