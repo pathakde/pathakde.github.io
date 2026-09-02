@@ -17,7 +17,19 @@
   <div class="author__content">
     <h3 class="author__name">{{ author.name }}</h3>
     {% if author.pronouns %}<p class="author__pronouns">{{ author.pronouns }}</p>{% endif %}
-    {% if author.bio %}<p class="author__bio">{{ author.bio | newline_to_br }}</p>{% endif %}
+    {% if author.bio %}
+      <p class="author__bio">
+        {% assign bio_li = author.bio | newline_to_br | strip_newlines | split: '<br />' %}
+        <ul style="padding: 0; margin: 0; list-style-type: none;">
+          {% for line in bio_li %}
+            <li style="padding: 0; margin: 0; text-indent: -12px; padding-left: 12px; overflow-wrap: break-word;">
+              {{ line }}
+            </li>
+          {% endfor %}
+        </ul>
+      </p>
+    {% endif %}
+
   </div>
 
   <div class="author__urls-wrapper">
