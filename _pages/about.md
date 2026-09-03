@@ -10,6 +10,16 @@ redirect_from:
 I'm a 5th year Astronomy PhD student at the Ohio State University. I use multi-wavelength observations of nearby galaxies to understand the interplay between cosmic dust, star-forming gas, and young stars in the interstellar medium. I am currently working with the [PHANGS](https://sites.google.com/view/phangs/) and [GOALS](https://goals.ipac.caltech.edu/)  collaborations to measure the impact of the energy and momentum deposited by young stars on the interstellar medium, and understand how dust and polycyclic aromatic hydrocarbon (PAH) properties vary across nearby galaxies. I am excited about all things related to stellar feedback and dust from normal star-forming galaxies to extremely dusty starbursts!
 
 I am excited about:
-<svg viewBox="0 0 1280 720" style="width: 100%; height: 100%;">
-  <use href="/images/Website-research-intro.svg"></use>
-</svg>
+<img src="/images/Website-research-intro.png" alt="
+Star Forming Galaxies;
+Young Stellar Feedback;
+Dust & Polycyclic Aromatic Hydrocarbons;
+HII Regions & Star Clusters;
+Galaxy Centers, Bulges, and Disks;
+Multi-Wavelength Observations;
+Luminouus Infrared Galaxies;
+Ultra-Luminouus Infrared Galaxies;
+Massive Star Formation & Galaxies;
+ISM Turbulence;
+Starbursts & Galaxy Mergers;
+"/>
