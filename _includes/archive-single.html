@@ -26,9 +26,9 @@
       </div>
     {% endif %}
 
-    <h2 class="archive__item-title" itemprop="headline">
+    <h2 class="archive__item-title" itemprop="headline" style="text-decoration: none">
       {% if include.number %}
-        <a href="{{ base_path }}{{ post.url }}" rel="permalink">{{ include.number }} {{ title }}</a>
+        ({{ include.number }}) <a href="{{ base_path }}{{ post.url }}" rel="permalink">{{ title }}</a>
       {% else %}
         <a href="{{ base_path }}{{ post.url }}" rel="permalink">{{ title }}</a>
       {% endif %}
