@@ -46,6 +46,10 @@
   a + a {
     opacity: 0.5;
   }
+
+  font-size: $type-size-5;
+
+  margin-top: 0.5em;
 }
 
 /* remove border*/
@@ -134,7 +138,7 @@
 
   .archive__item-title {
     margin-top: 0.5em;
-    font-size: $type-size-5;
+    font-size: $type-size-5-5;
   }
 
   .archive__item-excerpt {
