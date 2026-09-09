@@ -84,6 +84,19 @@
   }
 }
 
+.archive__item-exerpt-and-figures {
+  @media (min-width: 80em) {
+    display: flex;
+
+    .archive__item-excerpt {
+      flex: 1;
+    }
+
+    .archive__item-figures {
+      flex: 1;
+    }
+  }
+}
 
 /*
    List view
